@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AA4F97B-967A-4420-B3CC-EF1EFBAA72F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Paysafe</RootNamespace>
+    <AssemblyName>Paysafe</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile344</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>975b9097</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CardPayments\AccordD.cs" />
+    <Compile Include="CardPayments\AcquireResponse.cs" />
+    <Compile Include="CardPayments\PaysafeAuthentication.cs" />
+    <Compile Include="CardPayments\AuthorizationReversal.cs" />
+    <Compile Include="CardPayments\BillingDetails.cs" />
+    <Compile Include="CardPayments\Card.cs" />
+    <Compile Include="CardPayments\Authorization.cs" />
+    <Compile Include="CardPayments\CardPaymentsConstants.cs" />
+    <Compile Include="CardPayments\CardPaymentService.cs" />
+    <Compile Include="CardPayments\Filter.cs" />
+    <Compile Include="CardPayments\Pagerator.cs" />
+    <Compile Include="Common\AddressDetails.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\RecipientDateOfBirth.cs" />
+    <Compile Include="Common\Url.cs" />
+    <Compile Include="Common\Email.cs" />
+    <Compile Include="Common\GlobalConstants.cs" />
+    <Compile Include="CardPayments\MasterPass.cs" />
+    <Compile Include="CardPayments\MerchantDescriptor.cs" />
+    <Compile Include="CardPayments\Profile.cs" />
+    <Compile Include="CardPayments\Refund.cs" />
+    <Compile Include="CardPayments\Settlement.cs" />
+    <Compile Include="CardPayments\ShippingDetails.cs" />
+    <Compile Include="CardPayments\Verification.cs" />
+    <Compile Include="CardPayments\VisaAdditionalAuthData.cs" />
+    <Compile Include="Common\BaseJSONBuilder.cs" />
+    <Compile Include="Common\Error.cs" />
+    <Compile Include="Common\FieldError.cs" />
+    <Compile Include="Common\InvalidCredentialsException.cs" />
+    <Compile Include="Common\Link.cs" />
+    <Compile Include="Common\GenericJSONBuilder.cs" />
+    <Compile Include="Common\NestedJSONBuilder.cs" />
+    <Compile Include="Common\PaysafeException.cs" />
+    <Compile Include="Common\AbstractPagerator.cs" />
+    <Compile Include="CustomerVault\ACHBankAccounts.cs" />
+    <Compile Include="CustomerVault\Address.cs" />
+    <Compile Include="CustomerVault\BACSBankAccounts.cs" />
+    <Compile Include="CustomerVault\BillingAddress.cs" />
+    <Compile Include="CustomerVault\Card.cs" />
+    <Compile Include="Common\CardExpiry.cs" />
+    <Compile Include="CustomerVault\CustomerVaultConstants.cs" />
+    <Compile Include="CustomerVault\CustomerVaultService.cs" />
+    <Compile Include="CustomerVault\DateOfBirth.cs" />
+    <Compile Include="CustomerVault\EFTBankAccounts.cs" />
+    <Compile Include="CustomerVault\Mandates.cs" />
+    <Compile Include="CustomerVault\Profile.cs" />
+    <Compile Include="CustomerVault\SEPABankAccounts.cs" />
+    <Compile Include="DirectDebit\ACHBankAccounts.cs" />
+    <Compile Include="DirectDebit\BACSBankAccounts.cs" />
+    <Compile Include="DirectDebit\BillingDetails.cs" />
+    <Compile Include="DirectDebit\DateOfBirth.cs" />
+    <Compile Include="DirectDebit\DirectDebitConstants.cs" />
+    <Compile Include="DirectDebit\DirectDebitService.cs" />
+    <Compile Include="DirectDebit\EFTBankAccounts.cs" />
+    <Compile Include="DirectDebit\Filter.cs" />
+    <Compile Include="DirectDebit\Pagerator.cs" />
+    <Compile Include="DirectDebit\Profile.cs" />
+    <Compile Include="DirectDebit\Purchases.cs" />
+    <Compile Include="DirectDebit\SEPABankAccounts.cs" />
+    <Compile Include="DirectDebit\ShippingDetails.cs" />
+    <Compile Include="DirectDebit\StandaloneCredits.cs" />
+    <Compile Include="RequestType.cs" />
+    <Compile Include="Common\APIException.cs" />
+    <Compile Include="Common\EntityNotFoundException.cs" />
+    <Compile Include="Common\InvalidRequestException.cs" />
+    <Compile Include="Common\JSONObject.cs" />
+    <Compile Include="Common\Request.cs" />
+    <Compile Include="Common\RequestDeclinedException.cs" />
+    <Compile Include="Common\RequestConflictException.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="PaysafeApiClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="ThreeDSecure\Authentications.cs" />
+    <Compile Include="ThreeDSecure\Card.cs" />
+    <Compile Include="ThreeDSecure\EnrollmentChecks.cs" />
+    <Compile Include="ThreeDSecure\Error.cs" />
+    <Compile Include="ThreeDSecure\ThreeDSecureConstants.cs" />
+    <Compile Include="ThreeDSecure\ThreeDSecureService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
