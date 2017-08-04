@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace optimal.common
+namespace Paysafe.Common
 {
     public class PermissionException : NetbanxException
     {
