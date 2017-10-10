@@ -53,6 +53,7 @@
     <Compile Include="CardPayments\Pagerator.cs" />
     <Compile Include="Common\AddressDetails.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\PermissionException.cs" />
     <Compile Include="Common\RecipientDateOfBirth.cs" />
     <Compile Include="Common\Url.cs" />
     <Compile Include="Common\Email.cs" />
