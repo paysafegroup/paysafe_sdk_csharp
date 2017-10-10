@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Paysafe-sdk-csharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("PaySafe SDK")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("PaySafe Group")]
 [assembly: AssemblyProduct("Paysafe-sdk-csharp")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

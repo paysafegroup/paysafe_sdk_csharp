@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Paysafe/v14
+/packages/Newtonsoft.Json.9.0.1
+/.vs/config
+/Paysafe/bin
+/Paysafe/obj
+/Paysafe/Paysafe.csproj.user
+/Paysafe/Paysafe.1.0.0.symbols.nupkg
+/Paysafe/Paysafe.1.0.0.nupkg
+/SampleApp
