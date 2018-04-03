@@ -64,7 +64,7 @@ namespace SampleApp
                     .cvv(Request.Form["card_cvv"])
                     .cardExpiry()
                         .month(Convert.ToInt32(Request.Form["card_expiry_month"]))
-                        .year(Convert.ToInt32(Request.Form["card_expiry_month"]))
+                        .year(Convert.ToInt32(Request.Form["card_expiry_year"]))
                         .Done()
                     .Done()
                     .billingDetails()
