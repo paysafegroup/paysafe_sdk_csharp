@@ -138,11 +138,10 @@ namespace Paysafe.CustomerVault
         {
             card.setRequiredFields(new List<string> { CustomerVaultConstants.profileId });
             card.checkRequiredFields();
-            card.setRequiredFields(new List<string> { 
-                CustomerVaultConstants.cardNum,
-                CustomerVaultConstants.cardExpiry
-            });
             card.setOptionalFields(new List<string> {
+                CustomerVaultConstants.cardNum,
+                CustomerVaultConstants.cardExpiry,
+                CustomerVaultConstants.singleUseToken,
                 CustomerVaultConstants.nickName,
                 CustomerVaultConstants.merchantRefNum,
                 CustomerVaultConstants.holderName,

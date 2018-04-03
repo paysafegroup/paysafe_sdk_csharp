@@ -453,6 +453,17 @@ namespace Paysafe.CustomerVault
             }
 
             /// <summary>
+            /// Set the nickName parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>CardBuilder</returns>
+            public CardBuilder singleUseToken(string data)
+            {
+                this.properties[CustomerVaultConstants.singleUseToken] = data;
+                return this;
+            }
+
+            /// <summary>
             /// Set the merchantRefNum parameter
             /// </summary>
             /// <param name=data>string</param>
