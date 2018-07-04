@@ -64,6 +64,7 @@
     <Compile Include="CardPayments\Refund.cs" />
     <Compile Include="CardPayments\Settlement.cs" />
     <Compile Include="CardPayments\ShippingDetails.cs" />
+    <Compile Include="CardPayments\StoredCredential.cs" />
     <Compile Include="CardPayments\Verification.cs" />
     <Compile Include="CardPayments\VisaAdditionalAuthData.cs" />
     <Compile Include="Common\BaseJSONBuilder.cs" />
