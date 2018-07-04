@@ -48,7 +48,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string type()
         {
-            return this.getProperty(CardPaymentsConstants.enumType);
+            return this.getProperty(CardPaymentsConstants.type);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string occurence()
         {
-            return this.getProperty(CardPaymentsConstants.enumOccurence);
+            return this.getProperty(CardPaymentsConstants.occurence);
         }
 
         /// <summary>
