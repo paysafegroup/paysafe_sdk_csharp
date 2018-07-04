@@ -170,6 +170,7 @@ namespace Paysafe.Common
         public static readonly string sku = "sku";
         public static readonly string state = "state";
         public static readonly string status = "status";
+        public static readonly string storedCredential = "storedCredential";
         public static readonly string street = "street";
         public static readonly string street2 = "street2";
         public static readonly string synchronous = "synchronous";
