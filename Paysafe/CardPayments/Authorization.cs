@@ -817,6 +817,19 @@ namespace Paysafe.CardPayments
                 }
                 return this.properties[CardPaymentsConstants.shippingDetails] as ShippingDetails.ShippingDetailsBuilder<AuthorizationBuilder>;
             }
+            
+            /// <summary>
+            /// Build a profile object within this authorization.
+            /// </summary>
+            /// <returns>Profile.ProfileBuilder<AuthorizationBuilder></returns>
+            public Profile.ProfileBuilder<AuthorizationBuilder> profile()
+            {
+                if (!this.properties.ContainsKey(CardPaymentsConstants.profile))
+                {
+                    this.properties[CardPaymentsConstants.profile] = new Profile.ProfileBuilder<AuthorizationBuilder>(this);
+                }
+                return this.properties[CardPaymentsConstants.profile] as Profile.ProfileBuilder<AuthorizationBuilder>;
+            }
 
             /// <summary>
             /// Set the recurring parameter
@@ -868,7 +881,6 @@ namespace Paysafe.CardPayments
                 }
                 return this.properties[CardPaymentsConstants.storedCredential] as StoredCredential.StoredCredentialBuilder<AuthorizationBuilder>;
             }
-        }
         }
     }
 }
