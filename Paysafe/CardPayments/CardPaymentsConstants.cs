@@ -57,9 +57,9 @@ namespace Paysafe.CardPayments
             typeTopup,
             typeRecurring
         };
-        public static readonly List<string> enumOccurence = new List<string>() {
-            occurenceInitial,
-            occurenceSubsequent
+        public static readonly List<string> enumOccurrence = new List<string>() {
+            occurrenceInitial,
+            occurrenceSubsequent
         };
         public static readonly List<string> enumStatus = new List<string>() {
             statusReceived,
