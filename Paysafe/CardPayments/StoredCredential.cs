@@ -39,7 +39,7 @@ namespace Paysafe.CardPayments
         private static new Dictionary<string, object> fieldTypes = new Dictionary<string, object>
         {
             {CardPaymentsConstants.type, CardPaymentsConstants.enumType},
-            {CardPaymentsConstants.occurence, CardPaymentsConstants.enumOccurence}
+            {CardPaymentsConstants.occurrence, CardPaymentsConstants.enumOccurrence}
         };
 
         /// <summary>
@@ -61,21 +61,21 @@ namespace Paysafe.CardPayments
         }
         
         /// <summary>
-        /// Get the occurence
+        /// Get the occurrence
         /// </summary>
         /// <returns>string</returns>
-        public string occurence()
+        public string occurrence()
         {
-            return this.getProperty(CardPaymentsConstants.occurence);
+            return this.getProperty(CardPaymentsConstants.occurrence);
         }
 
         /// <summary>
         /// Set the type
         /// </summary>
         /// <returns>void</returns>
-        public void occurence(string data)
+        public void occurrence(string data)
         {
-            this.setProperty(CardPaymentsConstants.occurence, data);
+            this.setProperty(CardPaymentsConstants.occurrence, data);
         }
 
         /// <summary>
@@ -108,13 +108,13 @@ namespace Paysafe.CardPayments
             }
             
             /// <summary>
-            /// Set the occurence
+            /// Set the occurrence
             /// </summary>
             /// <param name=data>string</param>
             /// <returns>AccordDBuilder<TBLDR></returns>
-            public StoredCredentialBuilder<TBLDR> occurence(string data)
+            public StoredCredentialBuilder<TBLDR> occurrence(string data)
             {
-                this.properties[CardPaymentsConstants.occurence] = data;
+                this.properties[CardPaymentsConstants.occurrence] = data;
                 return this;
             }
         }
