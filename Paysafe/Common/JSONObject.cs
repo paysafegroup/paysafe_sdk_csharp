@@ -427,6 +427,10 @@ namespace Paysafe.Common
                         value[i] = this.cast(name, value[i], subType);
                         T = ((object)((System.Collections.IList)value)[i]).GetType();
                     }
+                    if (((System.Collections.IList)value).Count == 0)
+                    {
+                        T = subType;
+                    }
                     if (T != null && value is List<object>)
                     {
                         //convert list of subtype object to a list of the required subtype
