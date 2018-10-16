@@ -186,7 +186,7 @@ namespace Paysafe.CustomerVault
         /// <returns>string</returns>
         public string transitNumber()
         {
-            return this.getProperty(CustomerVaultConstants.sortCode);
+            return this.getProperty(CustomerVaultConstants.transitNumber);
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Paysafe.CustomerVault
         /// <returns>void</returns>
         public void transitNumber(string data)
         {
-            this.setProperty(CustomerVaultConstants.sortCode, data);
+            this.setProperty(CustomerVaultConstants.transitNumber, data);
         }
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace Paysafe.CustomerVault
         /// <returns>string</returns>
         public string institutionId()
         {
-            return this.getProperty(CustomerVaultConstants.sortCode);
+            return this.getProperty(CustomerVaultConstants.institutionId);
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace Paysafe.CustomerVault
         /// <returns>void</returns>
         public void institutionId(string data)
         {
-            this.setProperty(CustomerVaultConstants.sortCode, data);
+            this.setProperty(CustomerVaultConstants.institutionId, data);
         }
        
         /// <summary>
