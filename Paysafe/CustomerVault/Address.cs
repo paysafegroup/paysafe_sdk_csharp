@@ -124,7 +124,7 @@ namespace Paysafe.CustomerVault
         /// Get the defaultShippingAddressIndicator
         /// </summary>
         /// <returns>bool</returns>
-        public string defaultShippingAddressIndicator()
+        public bool defaultShippingAddressIndicator()
         {
             return this.getProperty(CustomerVaultConstants.defaultShippingAddressIndicator);
         }
