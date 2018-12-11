@@ -195,6 +195,7 @@ namespace Paysafe
             HttpWebRequest conn = (HttpWebRequest)WebRequest.CreateHttp(request.buildUrl(this.apiEndPoint));
             conn.Headers["Authorization"] = "Basic " + this.getAuthString();
             conn.ContentType = "application/json; charset=utf-8";
+	    conn.Headers["SDK-Type"] = "Paysafe_CSharp_SDK";
 
             conn.Method = request.method();
             if (request.method().Equals(RequestType.POST.ToString())
