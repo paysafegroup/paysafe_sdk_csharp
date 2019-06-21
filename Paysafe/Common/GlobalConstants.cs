@@ -168,6 +168,8 @@ namespace Paysafe.Common
         public static readonly string shippingDetails = "shippingDetails";
         public static readonly string shoppingCart = "shoppingCart";
         public static readonly string signatureStatus = "signatureStatus";
+        public static readonly string threeDSecureVersion = "threeDSecureVersion";
+        public static readonly string directoryServerTransactionId = "directoryServerTransactionId";
         public static readonly string sku = "sku";
         public static readonly string state = "state";
         public static readonly string status = "status";

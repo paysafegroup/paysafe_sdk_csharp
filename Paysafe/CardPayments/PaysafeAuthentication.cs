@@ -45,7 +45,10 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.xid, STRING_TYPE},
             {CardPaymentsConstants.threeDEnrollment, STRING_TYPE},
             {CardPaymentsConstants.threeDResult, STRING_TYPE},
-            {CardPaymentsConstants.signatureStatus, STRING_TYPE}
+            {CardPaymentsConstants.signatureStatus, STRING_TYPE},
+            {CardPaymentsConstants.threeDSecureVersion, STRING_TYPE},
+            {CardPaymentsConstants.directoryServerTransactionId, STRING_TYPE}
+
         };
 
         /// <summary>
@@ -156,6 +159,41 @@ namespace Paysafe.CardPayments
             this.setProperty(CardPaymentsConstants.signatureStatus, data);
         }
 
+        /// <summary>
+        /// Get the threeDSecureVersion
+        /// </summary>
+        /// <returns>string</returns>
+        public string threeDSecureVersion()
+        {
+            return this.getProperty(CardPaymentsConstants.threeDSecureVersion);
+        }
+
+        /// <summary>
+        /// Set the threeDSecureVersion
+        /// </summary>
+        /// <returns>void</returns>
+        public void threeDSecureVersion(string data)
+        {
+            this.setProperty(CardPaymentsConstants.threeDSecureVersion, data);
+        }
+
+        /// <summary>
+        /// Get the directoryServerTransactionId
+        /// </summary>
+        /// <returns>string</returns>
+        public string directoryServerTransactionId()
+        {
+            return this.getProperty(CardPaymentsConstants.directoryServerTransactionId);
+        }
+
+        /// <summary>
+        /// Set the directoryServerTransactionId
+        /// </summary>
+        /// <returns>void</returns>
+        public void directoryServerTransactionId(string data)
+        {
+            this.setProperty(CardPaymentsConstants.directoryServerTransactionId, data);
+        }
 
         /// <summary>
         /// AuthenticationBuilder<typeparam name="TBLDR"></typeparam> will allow a Authentication to be initialized
@@ -242,6 +280,26 @@ namespace Paysafe.CardPayments
                 return this;
             }
 
+            /// <summary>
+            /// Set the threeDSecureVersion
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>AuthenticationBuilder<TBLDR></returns>
+            public AuthenticationBuilder<TBLDR> threeDSecureVersion(string data)
+            {
+                this.properties[CardPaymentsConstants.threeDSecureVersion] = data;
+                return this;
+            }
+            /// <summary>
+            /// Set the directoryServerTransactionId
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>AuthenticationBuilder<TBLDR></returns>
+            public AuthenticationBuilder<TBLDR> directoryServerTransactionId(string data)
+            {
+                this.properties[CardPaymentsConstants.directoryServerTransactionId] = data;
+                return this;
+            }
         }
     }
 }
