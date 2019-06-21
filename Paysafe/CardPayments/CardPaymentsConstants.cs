@@ -52,15 +52,6 @@ namespace Paysafe.CardPayments
             recurringInitial,
             recurringRecurring
         };
-        public static readonly List<string> enumType = new List<string>() {
-            typeAdhoc,
-            typeTopup,
-            typeRecurring
-        };
-        public static readonly List<string> enumOccurrence = new List<string>() {
-            occurrenceInitial,
-            occurrenceSubsequent
-        };
         public static readonly List<string> enumStatus = new List<string>() {
             statusReceived,
             statusPending,
@@ -68,6 +59,14 @@ namespace Paysafe.CardPayments
             statusCompleted,
             statusFailed,
             statusCancelled
+        };
+        public static readonly List<string> enumThreeDResult = new List<string>() {
+            threeDResultY,
+            threeDResultA,
+            threeDResultN,
+            threeDResultU,
+            threeDResultE,
+            threeDResultR
         };
     }
 }

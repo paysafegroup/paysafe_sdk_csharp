@@ -126,9 +126,6 @@ namespace Paysafe.Common
         public static readonly string month = "month";
         public static readonly string nationality = "nationality";
         public static readonly string nickName = "nickName";
-        public static readonly string occurrence = "occurrence";
-        public static readonly string occurrenceInitial = "INITIAL";
-        public static readonly string occurrenceSubsequent = "SUBSEQUENT";
         public static readonly string orderId = "orderId";
         public static readonly string originalMerchantRefNum = "originalMerchantRefNum";
         public static readonly string paymentMethod = "paymentMethod";
@@ -173,7 +170,6 @@ namespace Paysafe.Common
         public static readonly string sku = "sku";
         public static readonly string state = "state";
         public static readonly string status = "status";
-        public static readonly string storedCredential = "storedCredential";
         public static readonly string street = "street";
         public static readonly string street2 = "street2";
         public static readonly string synchronous = "synchronous";
@@ -189,9 +185,6 @@ namespace Paysafe.Common
         public static readonly string txnDateTime = "txnDateTime";
         public static readonly string txnTime = "txnTime";
         public static readonly string type = "type";
-        public static readonly string typeAdhoc = "ADHOC";
-        public static readonly string typeTopup = "TOPUP";
-        public static readonly string typeRecurring = "RECURRING";
         public static readonly string uri = "uri";
         public static readonly string useAsShippingAddress = "useAsShippingAddress";
         public static readonly string value = "value";
@@ -293,6 +286,12 @@ namespace Paysafe.Common
         public static readonly string statusPending = "PENDING";
         public static readonly string statusProcessing = "PROCESSING";
         public static readonly string statusReceived = "RECEIVED";
+        public static readonly string threeDResultY = "Y";
+        public static readonly string threeDResultA = "A";
+        public static readonly string threeDResultN = "N";
+        public static readonly string threeDResultU = "U";
+        public static readonly string threeDResultE = "E";
+        public static readonly string threeDResultR = "R";
         public static readonly string recurringInitial = "INITIAL";
         public static readonly string recurringRecurring = "RECURRING";
         public static readonly string validationHeld = "HELD";

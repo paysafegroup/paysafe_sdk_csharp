@@ -44,7 +44,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.cavv, STRING_TYPE},
             {CardPaymentsConstants.xid, STRING_TYPE},
             {CardPaymentsConstants.threeDEnrollment, STRING_TYPE},
-            {CardPaymentsConstants.threeDResult, STRING_TYPE},
+            {CardPaymentsConstants.threeDResult, CardPaymentsConstants.enumThreeDResult},
             {CardPaymentsConstants.signatureStatus, STRING_TYPE},
             {CardPaymentsConstants.threeDSecureVersion, STRING_TYPE},
             {CardPaymentsConstants.directoryServerTransactionId, STRING_TYPE}
