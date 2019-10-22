@@ -288,7 +288,8 @@ namespace Paysafe.CardPayments
                 CardPaymentsConstants.customerIp,
                 CardPaymentsConstants.dupCheck,
                 CardPaymentsConstants.description,
-                CardPaymentsConstants.billingDetails
+                CardPaymentsConstants.billingDetails,
+				CardPaymentsConstants.storedCredential
             });
 
             Request request = new Request(

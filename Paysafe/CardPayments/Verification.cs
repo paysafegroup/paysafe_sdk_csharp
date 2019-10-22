@@ -64,6 +64,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.authCode, STRING_TYPE},
             {CardPaymentsConstants.profile, typeof(Profile)},
             {CardPaymentsConstants.billingDetails, typeof(BillingDetails)},
+            {CardPaymentsConstants.storedCredential, typeof(StoredCredential)},
             {CardPaymentsConstants.customerIp, STRING_TYPE},
             {CardPaymentsConstants.dupCheck, BOOL_TYPE},
             {CardPaymentsConstants.merchantDescriptor, typeof(MerchantDescriptor)},
@@ -208,6 +209,26 @@ namespace Paysafe.CardPayments
         {
             this.setProperty(CardPaymentsConstants.billingDetails, data);
         }
+
+        /// <summary>
+        /// Get the StoredCredential
+        /// </summary>
+        /// <returns>StoredCredential</returns>
+        public StoredCredential storedCredential()
+        {
+            return this.getProperty(CardPaymentsConstants.storedCredential);
+
+        }
+
+        /// <summary>
+        /// Set the StoredCredential
+        /// </summary>
+        /// <returns>void</returns>
+        public void storedCredential(StoredCredential data)
+        {
+            this.setProperty(CardPaymentsConstants.storedCredential, data);
+        }
+
 
         /// <summary>
         /// Get the customerIp
@@ -529,6 +550,19 @@ namespace Paysafe.CardPayments
                     this.properties[CardPaymentsConstants.billingDetails] = new BillingDetails.BillingDetailsBuilder<VerificationBuilder>(this);
                 }
                 return this.properties[CardPaymentsConstants.billingDetails] as BillingDetails.BillingDetailsBuilder<VerificationBuilder>;
+            }
+
+            /// <summary>
+            /// Build an StoredCredential object within this verification.
+            /// </summary>
+            /// <returns>StoredCredential.StoredCredentialBuilder<VerificationBuilder></returns>
+            public StoredCredential.StoredCredentialBuilder<VerificationBuilder> storedCredential()
+            {
+                if (!this.properties.ContainsKey(CardPaymentsConstants.storedCredential))
+                {
+                    this.properties[CardPaymentsConstants.storedCredential] = new StoredCredential.StoredCredentialBuilder<VerificationBuilder>(this);
+                }
+                return this.properties[CardPaymentsConstants.storedCredential] as StoredCredential.StoredCredentialBuilder<VerificationBuilder>;
             }
 
             /// <summary>
