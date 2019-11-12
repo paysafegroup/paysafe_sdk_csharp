@@ -203,7 +203,7 @@ namespace Paysafe.Common
         public static readonly string accountNumber = "accountNumber";
         public static readonly string accountHolderName = "accountHolderName";
         public static readonly string routingNumber = "routingNumber";
-        public static readonly string accountType = "accountType"; 
+        public static readonly string accountType = "accountType";
         public static readonly string sortCode = "sortCode";
         public static readonly string mandates = "mandates";
         public static readonly string mandateReference = "mandateReference";
@@ -226,8 +226,7 @@ namespace Paysafe.Common
         public static readonly string accountTypeLoan = "LOAN";
         public static readonly string accountTypeSavings = "SAVINGS";
 
-        ///
-
+       
         public static readonly string achBankAccounts = "achBankAccounts";
         public static readonly string bacsBankAccounts = "bacsBankAccounts";
         public static readonly string sepaBankAccounts = "sepaBankAccounts";
@@ -272,11 +271,14 @@ namespace Paysafe.Common
         public static readonly string relResendCallback = "resend_callback";
         public static readonly string relReturnUrl = "return_url";
         public static readonly string relSelf = "self";
+
         public static readonly string shipMethodLowestCost = "C";
         public static readonly string shipMethodNextDay = "N";
         public static readonly string shipMethodOther = "O";
         public static readonly string shipMethodTwoDay = "T";
-        public static readonly string statusActive = "ACTIVE";        
+        public static readonly string shipMethodSameDay = "S";
+
+        public static readonly string statusActive = "ACTIVE";
         public static readonly string statusInvalid = "INVALID";
         public static readonly string statusInactive = "INACTIVE";
         public static readonly string statusDeclined = "DECLINED";
@@ -323,11 +325,145 @@ namespace Paysafe.Common
         public static readonly string authenticationAttempted = "A";
         public static readonly string authenticationFailed = "N";
         public static readonly string authenticationUnavailable = "U";
+        public static readonly string authenticationChallenge = "C";
+        public static readonly string authenticationRejected = "R";
         public static readonly string authenticationError = "E";
         public static readonly string signatureSatisfied = "Y";
         public static readonly string signatureNotSatisfied = "N";
         public static readonly string enrollmentId = "enrollmentId";
+        public static readonly string deviceFingerprintingId = "deviceFingerprintingId";
+        public static readonly string payload = "payload";
+        public static readonly string sdkChallengePayload = "sdkChallengePayload";
+        public static readonly string maxAuthorizationsForInstalmentPayment = "maxAuthorizationsForInstalmentPayment";
+
+        public static readonly string transactionIntent = "transactionIntent";
+        public static readonly string transactionGoodsOrServicePurchase = "GOODS_OR_SERVICE_PURCHASE";
+        public static readonly string transactionCheckAcceptance = "CHECK_ACCEPTANCE";
+        public static readonly string transactionAccountfunding = "ACCOUNT_FUNDING";
+        public static readonly string transactionQuasiCashTransaction = "QUASI_CASH_TRANSACTION";
+        public static readonly string transactionPrepaidActivation = "PREPAID_ACTIVATION";
+
+        public static readonly string authenticationPurpose = "authenticationPurpose";
+        public static readonly string authPurposePaymentTransaction = "PAYMENT_TRANSACTION";
+        public static readonly string authPurposeRecurringTransaction = "RECURRING_TRANSACTION";
+        public static readonly string authPurposeInstalmentTransaction = "INSTALMENT_TRANSACTION";
+        public static readonly string authPurposeAddCard = "ADD_CARD";
+        public static readonly string authPurposeMaintainCard = "MAINTAIN_CARD";
+        public static readonly string authPurposeEMVTokenVerification = "EMV_TOKEN_VERIFICATION";
+
+        public static readonly string deviceChannel = "deviceChannel";
+        public static readonly string deviceChannelBrowser = "BROWSER";
+        public static readonly string deviceChannelSDK = "SDK";
+        public static readonly string deviceChannel3RI = "3RI";
+
+        public static readonly string messageCategory = "messageCategory";
+        public static readonly string messageCategoryPayment = "PAYMENT";
+        public static readonly string messageCategoryNonPayment = "NON_PAYMENT";
+
+        public static readonly string initialPurchaseTime = "initialPurchaseTime";
+
+        public static readonly string requestorChallengePreference = "requestorChallengePreference";
+        public static readonly string reqChallengeNoPref = "NO_PREFERENCE";
+        public static readonly string reqChallengeChallengeReq = "CHALLENGE_REQUESTED";
+        public static readonly string reqChallengeChallengeMandate = "CHALLENGE_MANDATED";
+
+        public static readonly string isElectronicDelivery = "isElectronicDelivery";
+        public static readonly string electronicDelivery = "electronicDelivery";
+
+        public static readonly string preOrderItemAvailabilityDate = "preOrderItemAvailabilityDate";
+
+        public static readonly string preOrderPurchaseIndicator = "preOrderPurchaseIndicator";
+        public static readonly string preOrderPurchaseMerchandiseAvailable = "MERCHANDISE_AVAILABLE";
+        public static readonly string preOrderPurchaseFutureAvailable = "FUTURE_AVAILABILITY";
+
+        public static readonly string reorderItemsIndicator = "reorderItemsIndicator";
+        public static readonly string reorderIndicatorFirstTimeOrder = "FIRST_TIME_ORDER";
+        public static readonly string reorderIndicatorReorder = "REORDER";
+
+        public static readonly string shippingIndicator = "shippingIndicator";
+        public static readonly string shippingToBillingAddress = "SHIP_TO_BILLING_ADDRESS";
+        public static readonly string shippingToVerifiedAddress = "SHIP_TO_VERIFIED_ADDRESS";
+        public static readonly string shippingToDifferentaddress = "SHIP_TO_DIFFERENT_ADDRESS";
+        public static readonly string shippingToStore = "SHIP_TO_STORE";
+        public static readonly string shippingDigitalGoods = "DIGITAL_GOODS";
+        public static readonly string shippingTravelAndEvent = "TRAVEL_AND_EVENT_TICKETS";
+        public static readonly string shippingOther = "OTHER";
+
+        public static readonly string orderItemDetails = "orderItemDetails";
+        public static readonly string purchasedGiftCardDetails = "purchasedGiftCardDetails";
+        public static readonly string count = "count";
+        public static readonly string billingCycle = "billingCycle";
+        public static readonly string endDate = "endDate";
+        public static readonly string frequency = "frequency";
+        public static readonly string browserDetails = "browserDetails";
+        public static readonly string colorDepthBits = "colorDepthBits";
+        public static readonly string javaEnabled = "javaEnabled";
+        public static readonly string javascriptEnabled = "javascriptEnabled";
+        public static readonly string language = "language";
+        public static readonly string screenHeight = "screenHeight";
+        public static readonly string screenWidth = "screenWidth";
+        public static readonly string timezoneOffset = "timezoneOffset";
+        public static readonly string userAccountDetails = "userAccountDetails";
+        public static readonly string addCardAttemptsForLastDay = "addCardAttemptsForLastDay";
+        public static readonly string changedDate = "changedDate";
+        public static readonly string createdDate = "createdDate";
+        public static readonly string passwordChangedDate = "passwordChangedDate";
+        public static readonly string paymentAccountDetails = "paymentAccountDetails";
+        public static readonly string priorThreeDSAuthentication = "priorThreeDSAuthentication";
+        public static readonly string data = "data";
+        public static readonly string time = "time";
+        public static readonly string shippingDetailsUsage = "shippingDetailsUsage";
+        public static readonly string cardHolderNameMatch = "cardHolderNameMatch";
+        public static readonly string initialUsageDate = "initialUsageDate";
+        public static readonly string suspiciousAccountActivity = "suspiciousAccountActivity";
+        public static readonly string totalPurchasesSixMonthCount = "totalPurchasesSixMonthCount";
+        public static readonly string transactionCountForPreviousDay = "transactionCountForPreviousDay";
+        public static readonly string transactionCountForPreviousYear = "transactionCountForPreviousYear";
+        public static readonly string travelDetails = "travelDetails";
+        public static readonly string isAirTravel = "isAirTravel";
+        public static readonly string airlineCarrier = "airlineCarrier";
+        public static readonly string departureDate = "departureDate";
+        public static readonly string destination = "destination";
+        public static readonly string origin = "origin";
+        public static readonly string passengerFirstName = "passengerFirstName";
+        public static readonly string passengerLastName = "passengerLastName";
+        public static readonly string userLogin = "userLogin";
         
+        public static readonly string initialUsageRange = "initialUsageRange";
+        public static readonly string currentTransaction = "CURRENT_TRANSACTION";
+        
+        public static readonly string method = "method";
+        public static readonly string frictionlessAuthentiocation = "FRICTIONLESS_AUTHENTICATION";
+        public static readonly string acsChallenge = "ACS_CHALLENGE";
+        public static readonly string avsVerified = "AVS_VERIFIED";
+        public static readonly string otherIssuerMethod = "OTHER_ISSUER_METHOD";
+
+        public static readonly string noLogin = "NO_LOGIN";
+        public static readonly string internalCredentials = "INTERNAL_CREDENTIALS";
+        public static readonly string federatedId = "FEDERATED_ID";
+        public static readonly string issuerCredentials = "ISSUER_CREDENTIALS";
+        public static readonly string thirdPartyAuthentication = "THIRD_PARTY_AUTHENTICATION";
+        public static readonly string fidoAuthenticator = "FIDO_AUTHENTICATOR";
+
+        public static readonly string changedRange = "changedRange";
+        public static readonly string duringTransaction = "DURING_TRANSACTION";
+        public static readonly string lessThanThirtyDays = "LESS_THAN_THIRTY_DAYS";
+        public static readonly string thirtyToSixtyDays = "THIRTY_TO_SIXTY_DAYS";
+        public static readonly string moreThanSixtyDays = "MORE_THAN_SIXTY_DAYS";
+
+        public static readonly string createdRange = "createdRange";
+        public static readonly string noAccount = "NO_ACCOUNT";
+        
+        public static readonly string passwordChangedRange = "passwordChangedRange";
+        public static readonly string noChange = "NO_CHANGE";
+
+        public static readonly string satisfiedSignatureStatus = "Y";
+        public static readonly string failedSignatureStatus = "N";
+
+        public static readonly string threeDSecureServerTransactionId = "threeDSecureServerTransactionId";
+        public static readonly string mcc = "mcc";
+        public static readonly string merchantName = "merchantName";
+
         public static readonly string AM = "AM";
         public static readonly string DC = "DC";
         public static readonly string DI = "DI";
@@ -339,7 +475,7 @@ namespace Paysafe.Common
         public static readonly string VI = "VI";
         public static readonly string VD = "VD";
         public static readonly string VE = "VE";
-        
+
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,
             carrierAnpost,
@@ -368,6 +504,63 @@ namespace Paysafe.Common
             shipMethodTwoDay,
             shipMethodLowestCost,
             shipMethodOther
+        };
+        public static readonly List<string> enumCountry = new List<string>()
+        {
+            "AF", "AX", "AL", "DZ", "AS",
+        "AD", "AO", "AI", "AQ", "AG",
+        "AR", "AM", "AW", "AU", "AT",
+        "AZ", "BS", "BH", "BD", "BD",
+        "BY", "BE", "BZ", "BJ", "BM",
+        "BT", "BO", "BQ", "BA", "BW",
+        "BV", "BR", "IO", "BN", "BG",
+        "BF", "BI", "KH", "CM", "CA",
+        "CV", "KY", "CF", "TD", "CL",
+        "CN", "CX", "CC", "CO", "KM",
+        "CG", "CD", "CK", "CR", "CI",
+        "HR", "CU", "CW", "CY", "CZ",
+        "DK", "DJ", "DM", "DO", "EC",
+        "EG", "SV", "GQ", "ER", "EE",
+        "ET", "FK", "FO", "FJ", "FI",
+        "FR", "GF", "PF", "TF", "GA",
+        "GM", "GE", "DE", "GH", "GI",
+        "GR", "GL", "GD", "GP", "GU",
+        "GT", "GG", "GN", "GW", "GY",
+        "HT", "HM", "HN", "HK", "HU",
+        "IS", "IN", "ID", "IR", "IQ",
+        "IE", "IM", "IL", "IT", "JM",
+        "JP", "JE", "JO", "KZ", "KE",
+        "KI", "KP", "KR", "KW", "KG",
+        "LA", "LV", "LB", "LS", "LR",
+        "LY", "LI", "LT", "LU", "MO",
+        "MK", "MG", "MW", "MY", "MV",
+        "ML", "MT", "MH", "MQ", "MR",
+        "MU", "YT", "MX", "FM", "MD",
+        "MC", "MN", "ME", "MS", "MA",
+        "MZ", "MM", "NA", "NR", "NP",
+        "NC", "NZ", "NI", "NE", "NG",
+        "NU", "NF", "MP", "NO", "OM",
+        "PK", "PW", "PS", "PA", "PG",
+        "PY", "PE", "PH", "PN", "PL",
+        "PT", "PR", "QA", "RE", "RO",
+        "RU", "RW", "BL", "SH", "KN",
+        "LC", "MF", "VC", "WS", "SM",
+        "ST", "SA", "SN", "RS", "SC",
+        "SL", "SG", "SX", "SK", "SI",
+        "SB", "SO", "ZA", "GS", "SS",
+        "ES", "LK", "PM", "SD", "SR",
+        "SJ", "SZ", "SE", "CH", "SY",
+        "TW", "TJ", "TZ", "TH", "NL",
+        "TL", "TG", "TK", "TO", "TT",
+        "TN", "TR", "TM", "TC", "TV",
+        "UG", "UA", "AE", "GB", "US",
+        "UM", "UY", "UZ", "VU", "VA",
+        "VE", "VN", "VG", "VI", "WF",
+        "EH", "YE", "ZM", "ZW" 
+        };
+        public static readonly List<string> enumColorDepthBits = new List<string>()
+        {
+            "1", "4", "8", "15", "16", "24", "32", "48"
         };
     }
 }

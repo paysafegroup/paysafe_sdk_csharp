@@ -27,6 +27,7 @@ using CardPaymentService = Paysafe.CardPayments.CardPaymentService;
 using CustomerVaultService = Paysafe.CustomerVault.CustomerVaultService;
 using DirectDebitService = Paysafe.DirectDebit.DirectDebitService;
 using ThreeDSecureService = Paysafe.ThreeDSecure.ThreeDSecureService;
+using ThreeDSecureV2Service = Paysafe.ThreeDsecureV2.ThreeDSecureV2Service;
 using Paysafe.Common;
 
 [assembly: CLSCompliant(true)]
@@ -111,13 +112,12 @@ namespace Paysafe
 
             if (this.apiEnvironment == Environment.TEST)
             {
-                this.apiEndPoint = "https://api.test.netbanx.com";
+                this.apiEndPoint = "https://api.test.paysafe.com";
             }
             else
             {
-                this.apiEndPoint = "https://api.netbanx.com";
+                this.apiEndPoint = "https://api.paysafe.com";
             }
-
         }
 
         /// <summary>
@@ -151,18 +151,16 @@ namespace Paysafe
         /// Get an instance of the customer vault service
         /// </summary>
         /// <returns>CustomerVaultService</returns>
-        public CustomerVaultService customerVaultService() {
+        public CustomerVaultService customerVaultService()
+        {
             return new Paysafe.CustomerVault.CustomerVaultService(this);
         }
-
-	    
 
         /// <summary>
         /// Get an instance of the Direct debit service
         /// </summary>
         /// <returns>DirectDebitService</returns>
         public DirectDebitService directDebitService()
-        
         {
             return new DirectDebitService(this);
         }
@@ -174,6 +172,15 @@ namespace Paysafe
         public ThreeDSecureService threeDSecureService()
         {
             return new ThreeDSecureService(this);
+        }
+
+        /// <summary>
+        /// Get an instance of the ThreeDSecureV2 service
+        /// </summary>
+        /// <returns>ThreeDSecureV2Service</returns>
+        public ThreeDSecureV2Service threeDSecureV2Service()
+        {
+            return new ThreeDSecureV2Service(this);
         }
 
         /// <summary>
@@ -190,12 +197,12 @@ namespace Paysafe
         /// </summary>
         /// <param name="request"></param>
         /// <returns>Dictionary<string,object></returns>
-        public Dictionary<string,object> processRequest(Request request)
+        public Dictionary<string, object> processRequest(Request request)
         {
             HttpWebRequest conn = (HttpWebRequest)WebRequest.CreateHttp(request.buildUrl(this.apiEndPoint));
             conn.Headers["Authorization"] = "Basic " + this.getAuthString();
             conn.ContentType = "application/json; charset=utf-8";
-	    conn.Headers["SDK-Type"] = "Paysafe_CSharp_SDK";
+            conn.Headers["SDK-Type"] = "Paysafe_CSharp_SDK";
 
             conn.Method = request.method();
             if (request.method().Equals(RequestType.POST.ToString())
@@ -275,6 +282,7 @@ namespace Paysafe
                     }
                     throw PaysafeException;
                 }
+
                 throw;
             }
             throw new PaysafeException("An unknown error has occurred.");

@@ -57,11 +57,12 @@ namespace Paysafe.Common
 
         protected static Type STRING_TYPE = typeof(string);
         protected static Type INT_TYPE = typeof(int);
+        protected static Type LONG_TYPE = typeof(long);
         protected static Type BOOL_TYPE = typeof(bool);
         protected static Type URL_TYPE = typeof(Url);
         protected static Type EMAIL_TYPE = typeof(Email);
         protected static Type FLOAT_TYPE = typeof(float);
-
+      
         /// <summary>
         /// The object will be json serialized using only the optional and required properties
         /// </summary>
@@ -347,11 +348,14 @@ namespace Paysafe.Common
                 }
                 return value;
             }
+
+              
             else if (validation is Type)
             {
                 Type validationType = validation as Type;
+
                 if (validationType.Equals(STRING_TYPE))
-                {
+                { 
                     if (null == valueString)
                     {
                         throw new PaysafeException("Invalid value for property " + name + " for class " + this.GetType().ToString() + ". String expected.");
@@ -375,6 +379,7 @@ namespace Paysafe.Common
                     }
                     return value;
                 }
+       
                 else if (validationType.Equals(INT_TYPE))
                 {
                     try
@@ -385,6 +390,19 @@ namespace Paysafe.Common
                     {
                         //format exception or overflow exception
                         throw new PaysafeException("Invalid value for property " + name + " for class " + this.GetType().ToString() + ". Integer expected.");
+                    }
+                }
+
+                else if (validationType.Equals(LONG_TYPE))
+                {
+                    try
+                    {
+                        return Convert.ToInt64(value);
+                    }
+                    catch (Exception)
+                    {
+                        //format exception or overflow exception
+                        throw new PaysafeException("Invalid value for property " + name + " for class " + this.GetType().ToString() + ". Long expected.");
                     }
                 }
                 else if (validationType.Equals(FLOAT_TYPE))
@@ -413,6 +431,7 @@ namespace Paysafe.Common
                     }
                     return boolVal;
                 }
+                
                 else if (validationType.IsGenericType && 
                     validationType.GetGenericTypeDefinition() == typeof(List<>))
                 {

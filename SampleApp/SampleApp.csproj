@@ -79,6 +79,7 @@
     <Content Include="directdebit classification.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="ThreeDSecureV2_Authentication.aspx" />
     <Content Include="ThreeDSecure_Authentication.aspx" />
     <Content Include="ThreeDSecure_EnrollmentChecks.aspx" />
     <Content Include="Web.config" />
@@ -186,6 +187,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreeDSecureV2_Authentication.aspx.cs">
+      <DependentUpon>ThreeDSecureV2_Authentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreeDSecureV2_Authentication.aspx.designer.cs">
+      <DependentUpon>ThreeDSecureV2_Authentication.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThreeDSecure_Authentication.aspx.cs">
       <DependentUpon>ThreeDSecure_Authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
