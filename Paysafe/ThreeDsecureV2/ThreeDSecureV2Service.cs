@@ -66,8 +66,8 @@ namespace Paysafe.ThreeDsecureV2
                 ThreeDSecureV2Constants.userAccountDetails,
                 ThreeDSecureV2Constants.billingDetails,
                 ThreeDSecureV2Constants.shippingDetails,
-		        ThreeDSecureV2Constants.profile,
-		        ThreeDSecureV2Constants.maxAuthorizationsForInstalmentPayment,
+		ThreeDSecureV2Constants.profile,
+		ThreeDSecureV2Constants.maxAuthorizationsForInstalmentPayment,
                 ThreeDSecureV2Constants.transactionIntent,
                 ThreeDSecureV2Constants.billingCycle,
                 ThreeDSecureV2Constants.initialPurchaseTime,
@@ -88,7 +88,7 @@ namespace Paysafe.ThreeDsecureV2
         /// Get the Authentications
         /// </summary>
         /// <param name="auth">Authentications</param>
-        /// <returns>Authorization</returns>
+        /// <returns>Authentications</returns>
         public Authentications get(Authentications auth)
         {
             auth.setRequiredFields(new List<string> { ThreeDSecureV2Constants.id });
@@ -96,7 +96,7 @@ namespace Paysafe.ThreeDsecureV2
 
             Request request = new Request(
                 method: RequestType.GET,
-                uri: this.prepareURI("/accounts/" + client.account() + "/authentications" + auth.id())
+                uri: this.prepareURI("/accounts/" + client.account() + "/authentications/" + auth.id())
             );
 
             dynamic response = this.client.processRequest(request);
