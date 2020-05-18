@@ -63,7 +63,7 @@ namespace Paysafe.Common
             this._code = data;
         }
 
-        public int cpde()
+        public int code()
         {
             return this._code;
         }
