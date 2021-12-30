@@ -476,6 +476,12 @@ namespace Paysafe.Common
         public static readonly string VD = "VD";
         public static readonly string VE = "VE";
 
+        public static readonly string airlineTravelDetails = "airlineTravelDetails";
+        public static readonly string passengerName = "passengerName";
+        public static readonly string ticket = "ticket";
+        public static readonly string ticketNumber = "ticketNumber";
+
+
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,
             carrierAnpost,

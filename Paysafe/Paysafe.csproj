@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CardPayments\AccordD.cs" />
     <Compile Include="CardPayments\AcquireResponse.cs" />
+    <Compile Include="CardPayments\AirlineTravelDetails.cs" />
     <Compile Include="CardPayments\PaysafeAuthentication.cs" />
     <Compile Include="CardPayments\AuthorizationReversal.cs" />
     <Compile Include="CardPayments\BillingDetails.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="CardPayments\CardPaymentService.cs" />
     <Compile Include="CardPayments\Filter.cs" />
     <Compile Include="CardPayments\Pagerator.cs" />
+    <Compile Include="CardPayments\Ticket.cs" />
     <Compile Include="Common\AddressDetails.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\PermissionException.cs" />

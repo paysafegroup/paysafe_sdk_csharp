@@ -72,6 +72,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.authCode, STRING_TYPE},
             {CardPaymentsConstants.profile, typeof(Profile)},
             {CardPaymentsConstants.billingDetails, typeof(BillingDetails)},
+            {CardPaymentsConstants.airlineTravelDetails, typeof(AirlineTravelDetails) },
             {CardPaymentsConstants.shippingDetails, typeof(ShippingDetails)},
             {CardPaymentsConstants.recurring, CardPaymentsConstants.enumRecurring},
             {CardPaymentsConstants.customerIp, STRING_TYPE},
@@ -880,6 +881,19 @@ namespace Paysafe.CardPayments
                     this.properties[CardPaymentsConstants.storedCredential] = new StoredCredential.StoredCredentialBuilder<AuthorizationBuilder>(this);
                 }
                 return this.properties[CardPaymentsConstants.storedCredential] as StoredCredential.StoredCredentialBuilder<AuthorizationBuilder>;
+            }
+
+            /// <summary>
+            /// Build an AirlineTravelDetails object within this authorization.
+            /// </summary>
+            /// <returns>AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder></returns>
+            public AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder> airlineTravelDetails()
+            {
+                if (!this.properties.ContainsKey(CardPaymentsConstants.airlineTravelDetails))
+                {
+                    this.properties[CardPaymentsConstants.airlineTravelDetails] = new AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>(this);
+                }
+                return this.properties[CardPaymentsConstants.airlineTravelDetails] as AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>;
             }
         }
     }
