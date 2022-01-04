@@ -18,8 +18,9 @@ namespace Paysafe.CardPayments
         {
             {CardPaymentsConstants.passengerName, STRING_TYPE},
             {CardPaymentsConstants.departureDate,  STRING_TYPE},
-            {CardPaymentsConstants.origin,  STRING_TYPE},
             {CardPaymentsConstants.ticket, typeof(Ticket)},
+            {CardPaymentsConstants.origin,  STRING_TYPE},
+            {CardPaymentsConstants.computerizedReservationSystem, CardPaymentsConstants.enumComputerizedReservationSystem},
         };
 
         /// <summary>
@@ -97,6 +98,23 @@ namespace Paysafe.CardPayments
             this.setProperty(CardPaymentsConstants.ticket, data);
         }
 
+        /// <summary>
+        /// Get computerized reservation system used to make the reservation and purchase the ticket.
+        /// </summary>
+        /// <returns>string</returns>
+        public string computerizedReservationSystem()
+        {
+            return getProperty(CardPaymentsConstants.computerizedReservationSystem);
+        }
+
+        /// <summary>
+        /// Set computerized reservation system used to make the reservation and purchase the ticket. Example: 'STRT'
+        /// </summary>
+        /// <returns>void</returns>
+        public void computerizedReservationSystem(string data)
+        {
+            setProperty(CardPaymentsConstants.computerizedReservationSystem, data);
+        }
 
         /// <summary>
         /// AirlineTravelDetailsBuilder<typeparam name="TBLDR"></typeparam> will allow a AirlineTravelDetails to be initialized
@@ -159,6 +177,16 @@ namespace Paysafe.CardPayments
                     this.properties[CardPaymentsConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
                 }
                 return this.properties[CardPaymentsConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
+            }
+
+            /// <summary>
+            /// Set computerized reservation system used to make the reservation and purchase the ticket. Example: 'STRT'
+            /// </summary>
+            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> computerizedReservationSystem(string data)
+            {
+                properties[CardPaymentsConstants.computerizedReservationSystem] = data;
+                return this;
             }
         }
     }

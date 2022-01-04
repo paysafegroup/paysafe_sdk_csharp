@@ -480,6 +480,19 @@ namespace Paysafe.Common
         public static readonly string passengerName = "passengerName";
         public static readonly string ticket = "ticket";
         public static readonly string ticketNumber = "ticketNumber";
+        public static readonly string computerizedReservationSystem = "computerizedReservationSystem";
+
+        public static readonly List<string> enumComputerizedReservationSystem = new List<string>
+        {
+            "STRT",
+            "PARS",
+            "DATS",
+            "SABR",
+            "DALA",
+            "BLAN",
+            "DERD",
+            "TUID"
+        };
 
 
         public static readonly List<string> enumCarrier = new List<string>{
