@@ -481,6 +481,8 @@ namespace Paysafe.Common
         public static readonly string ticket = "ticket";
         public static readonly string ticketNumber = "ticketNumber";
         public static readonly string computerizedReservationSystem = "computerizedReservationSystem";
+        public static readonly string customerReferenceNumber = "customerReferenceNumber";
+        public static readonly string isRestrictedTicket = "isRestrictedTicket";
 
         public static readonly List<string> enumComputerizedReservationSystem = new List<string>
         {
@@ -493,7 +495,6 @@ namespace Paysafe.Common
             "DERD",
             "TUID"
         };
-
 
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,

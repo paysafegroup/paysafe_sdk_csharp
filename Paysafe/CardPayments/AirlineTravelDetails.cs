@@ -21,6 +21,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.ticket, typeof(Ticket)},
             {CardPaymentsConstants.origin,  STRING_TYPE},
             {CardPaymentsConstants.computerizedReservationSystem, CardPaymentsConstants.enumComputerizedReservationSystem},
+            {CardPaymentsConstants.customerReferenceNumber, STRING_TYPE},
         };
 
         /// <summary>
@@ -116,6 +117,27 @@ namespace Paysafe.CardPayments
             setProperty(CardPaymentsConstants.computerizedReservationSystem, data);
         }
 
+
+
+        /// <summary>
+        /// Get the code that the cardholder supplied to the card acceptor.
+        /// </summary>
+        /// <returns>string</returns>
+        public string customerReferenceNumber()
+        {
+            return getProperty(CardPaymentsConstants.customerReferenceNumber);
+        }
+
+        /// <summary>
+        /// Set the code that the cardholder supplied to the card acceptor.
+        /// </summary>
+        /// <returns>void</returns>
+        public void customerReferenceNumber(string data)
+        {
+            setProperty(CardPaymentsConstants.customerReferenceNumber, data);
+        }
+
+
         /// <summary>
         /// AirlineTravelDetailsBuilder<typeparam name="TBLDR"></typeparam> will allow a AirlineTravelDetails to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
@@ -188,6 +210,17 @@ namespace Paysafe.CardPayments
                 properties[CardPaymentsConstants.computerizedReservationSystem] = data;
                 return this;
             }
+
+            /// <summary>
+            /// Set the code that the cardholder supplied to the card acceptor.
+            /// </summary>
+            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> customerReferenceNumber(string data)
+            {
+                properties[CardPaymentsConstants.customerReferenceNumber] = data;
+                return this;
+            }
         }
     }
 }
+                        

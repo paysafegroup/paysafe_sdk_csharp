@@ -16,9 +16,9 @@ namespace Paysafe.CardPayments
 
         private static new Dictionary<string, object> fieldTypes = new Dictionary<string, object>
         {
-            {CardPaymentsConstants.ticketNumber, STRING_TYPE}
+            {GlobalConstants.ticketNumber, STRING_TYPE },
+            {GlobalConstants.isRestrictedTicket, BOOL_TYPE },
         };
-
 
         /// <summary>
         ///  Get airline ticket number.
@@ -26,7 +26,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string ticketNumber()
         {
-            return getProperty(CardPaymentsConstants.ticketNumber);
+            return getProperty(GlobalConstants.ticketNumber);
         }
 
         /// <summary>
@@ -35,7 +35,27 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void ticketNumber(string data)
         {
-            setProperty(CardPaymentsConstants.ticketNumber, data);
+            setProperty(GlobalConstants.ticketNumber, data);
+        }
+
+        /// <summary>
+        ///  Indicates whether this ticket is non-refundable.
+        ///  This entry should be supplied on CPS/Passenger Transport 1 or 2 transactions 
+        ///  if the ticket was purchased as a non-refundable ticket.
+        /// </summary>
+        /// <returns>string</returns>
+        public string isRestrictedTicket()
+        {
+            return getProperty(GlobalConstants.isRestrictedTicket);
+        }
+
+        /// <summary>
+        /// Set whether this ticket is non-refundable.
+        /// </summary>
+        /// <returns>void</returns>
+        public void isRestrictedTicket(bool data)
+        {
+            setProperty(GlobalConstants.isRestrictedTicket, data);
         }
 
         /// <summary>
@@ -63,7 +83,18 @@ namespace Paysafe.CardPayments
             /// <returns>TicketBuilder<TBLDR></returns>
             public TicketBuilder<TBLDR> ticketNumber(string data)
             {
-                this.properties[CardPaymentsConstants.ticketNumber] = data;
+                properties[GlobalConstants.ticketNumber] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set whether this ticket is non-refundable.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>TicketBuilder<TBLDR></returns>
+            public TicketBuilder<TBLDR> isRestrictedTicket(bool data)
+            {
+                properties[GlobalConstants.isRestrictedTicket] = data;
                 return this;
             }
 
