@@ -53,6 +53,7 @@
     <Compile Include="CardPayments\Filter.cs" />
     <Compile Include="CardPayments\Pagerator.cs" />
     <Compile Include="CardPayments\Ticket.cs" />
+    <Compile Include="CardPayments\TravelAgency.cs" />
     <Compile Include="Common\AddressDetails.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\PermissionException.cs" />

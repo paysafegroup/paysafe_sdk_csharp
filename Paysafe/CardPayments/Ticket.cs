@@ -61,7 +61,7 @@ namespace Paysafe.CardPayments
         /// <summary>
         /// TicketBuilder<typeparam name="TBLDR"></typeparam> will allow a TicketBuilder to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
-        /// get back to the parent builder
+        /// get back to the parent builder.
         /// </summary>
         public class TicketBuilder<TBLDR> : NestedJSONBuilder<Ticket, TBLDR>
             where TBLDR : GenericJSONBuilder
@@ -90,7 +90,7 @@ namespace Paysafe.CardPayments
             /// <summary>
             /// Set whether this ticket is non-refundable.
             /// </summary>
-            /// <param name=data>string</param>
+            /// <param name=data>bool</param>
             /// <returns>TicketBuilder<TBLDR></returns>
             public TicketBuilder<TBLDR> isRestrictedTicket(bool data)
             {

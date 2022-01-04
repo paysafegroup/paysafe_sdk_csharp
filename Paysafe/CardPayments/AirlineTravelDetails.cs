@@ -16,12 +16,13 @@ namespace Paysafe.CardPayments
 
         private static new Dictionary<string, object> fieldTypes = new Dictionary<string, object>
         {
-            {CardPaymentsConstants.passengerName, STRING_TYPE},
-            {CardPaymentsConstants.departureDate,  STRING_TYPE},
-            {CardPaymentsConstants.ticket, typeof(Ticket)},
-            {CardPaymentsConstants.origin,  STRING_TYPE},
-            {CardPaymentsConstants.computerizedReservationSystem, CardPaymentsConstants.enumComputerizedReservationSystem},
-            {CardPaymentsConstants.customerReferenceNumber, STRING_TYPE},
+            {GlobalConstants.passengerName, STRING_TYPE },
+            {GlobalConstants.departureDate,  STRING_TYPE },
+            {GlobalConstants.ticket, typeof(Ticket) },
+            {GlobalConstants.origin,  STRING_TYPE },
+            {GlobalConstants.computerizedReservationSystem, GlobalConstants.enumComputerizedReservationSystem },
+            {GlobalConstants.customerReferenceNumber, STRING_TYPE },
+            {GlobalConstants.travelAgency, typeof(TravelAgency) },
         };
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string passengerName()
         {
-            return this.getProperty(CardPaymentsConstants.passengerName);
+            return this.getProperty(GlobalConstants.passengerName);
         }
 
         /// <summary>
@@ -39,9 +40,8 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void passengerName(string data)
         {
-            this.setProperty(CardPaymentsConstants.passengerName, data);
+            this.setProperty(GlobalConstants.passengerName, data);
         }
-
 
         /// <summary>
         /// Get the origin - departure airport code
@@ -49,7 +49,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string origin()
         {
-            return this.getProperty(CardPaymentsConstants.origin);
+            return this.getProperty(GlobalConstants.origin);
         }
 
         /// <summary>
@@ -58,9 +58,8 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void origin(string data)
         {
-            this.setProperty(CardPaymentsConstants.origin, data);
+            this.setProperty(GlobalConstants.origin, data);
         }
-
 
         /// <summary>
         /// Get date of passenger’s departure. Date format = YYYY-MM-DD, ISO 8601 expected.
@@ -68,7 +67,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string departureDate()
         {
-            return this.getProperty(CardPaymentsConstants.departureDate);
+            return this.getProperty(GlobalConstants.departureDate);
         }
 
         /// <summary>
@@ -77,9 +76,8 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void departureDate(string data)
         {
-            this.setProperty(CardPaymentsConstants.departureDate, data);
+            this.setProperty(GlobalConstants.departureDate, data);
         }
-
 
         /// <summary>
         /// Get information about the Airline Ticket and if the ticket is restricted.
@@ -87,7 +85,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public Ticket ticket()
         {
-            return this.getProperty(CardPaymentsConstants.ticket);
+            return this.getProperty(GlobalConstants.ticket);
         }
 
         /// <summary>
@@ -96,7 +94,7 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void ticket(Ticket data)
         {
-            this.setProperty(CardPaymentsConstants.ticket, data);
+            this.setProperty(GlobalConstants.ticket, data);
         }
 
         /// <summary>
@@ -105,7 +103,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string computerizedReservationSystem()
         {
-            return getProperty(CardPaymentsConstants.computerizedReservationSystem);
+            return getProperty(GlobalConstants.computerizedReservationSystem);
         }
 
         /// <summary>
@@ -114,10 +112,8 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void computerizedReservationSystem(string data)
         {
-            setProperty(CardPaymentsConstants.computerizedReservationSystem, data);
+            setProperty(GlobalConstants.computerizedReservationSystem, data);
         }
-
-
 
         /// <summary>
         /// Get the code that the cardholder supplied to the card acceptor.
@@ -125,7 +121,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string customerReferenceNumber()
         {
-            return getProperty(CardPaymentsConstants.customerReferenceNumber);
+            return getProperty(GlobalConstants.customerReferenceNumber);
         }
 
         /// <summary>
@@ -134,7 +130,7 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void customerReferenceNumber(string data)
         {
-            setProperty(CardPaymentsConstants.customerReferenceNumber, data);
+            setProperty(GlobalConstants.customerReferenceNumber, data);
         }
 
 
@@ -163,7 +159,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> passengerName(string data)
             {
-                this.properties[CardPaymentsConstants.passengerName] = data;
+                this.properties[GlobalConstants.passengerName] = data;
                 return this;
             }
 
@@ -174,7 +170,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> origin(string data)
             {
-                this.properties[CardPaymentsConstants.origin] = data;
+                this.properties[GlobalConstants.origin] = data;
                 return this;
             }
 
@@ -184,7 +180,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> departureDate(string data)
             {
-                this.properties[CardPaymentsConstants.departureDate] = data;
+                this.properties[GlobalConstants.departureDate] = data;
                 return this;
             }
 
@@ -194,11 +190,11 @@ namespace Paysafe.CardPayments
             /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
             public Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>> ticket()
             {
-                if (!this.properties.ContainsKey(CardPaymentsConstants.ticket))
+                if (!this.properties.ContainsKey(GlobalConstants.ticket))
                 {
-                    this.properties[CardPaymentsConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
+                    this.properties[GlobalConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
                 }
-                return this.properties[CardPaymentsConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
+                return this.properties[GlobalConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
 
             /// <summary>
@@ -207,7 +203,7 @@ namespace Paysafe.CardPayments
             /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
             public AirlineTravelDetailsBuilder<TBLDR> computerizedReservationSystem(string data)
             {
-                properties[CardPaymentsConstants.computerizedReservationSystem] = data;
+                properties[GlobalConstants.computerizedReservationSystem] = data;
                 return this;
             }
 
@@ -217,8 +213,21 @@ namespace Paysafe.CardPayments
             /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
             public AirlineTravelDetailsBuilder<TBLDR> customerReferenceNumber(string data)
             {
-                properties[CardPaymentsConstants.customerReferenceNumber] = data;
+                properties[GlobalConstants.customerReferenceNumber] = data;
                 return this;
+            }
+
+            /// <summary>
+            /// Set information about the travel agency if the ticket was issued by a travel agency.
+            /// </summary>
+            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            public TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>> travelAgency()
+            {
+                if (!properties.ContainsKey(GlobalConstants.travelAgency))
+                {
+                    properties[GlobalConstants.travelAgency] = new TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
+                }
+                return properties[GlobalConstants.travelAgency] as TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
         }
     }

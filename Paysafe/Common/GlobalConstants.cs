@@ -483,6 +483,8 @@ namespace Paysafe.Common
         public static readonly string computerizedReservationSystem = "computerizedReservationSystem";
         public static readonly string customerReferenceNumber = "customerReferenceNumber";
         public static readonly string isRestrictedTicket = "isRestrictedTicket";
+        public static readonly string name = "name";
+        public static readonly string travelAgency = "travelAgency";
 
         public static readonly List<string> enumComputerizedReservationSystem = new List<string>
         {
