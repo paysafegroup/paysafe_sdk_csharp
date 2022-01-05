@@ -296,6 +296,24 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
+        /// Get the airline travel details
+        /// </summary>
+        /// <returns>AirlineTravelDetails</returns>
+        public AirlineTravelDetails airlineTravelDetails()
+        {
+            return getProperty(GlobalConstants.airlineTravelDetails);
+        }
+
+        /// <summary>
+        /// Set the airline travel details
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineTravelDetails(AirlineTravelDetails data)
+        {
+            setProperty(GlobalConstants.airlineTravelDetails, data);
+        }
+
+        /// <summary>
         /// Get the shipping details
         /// </summary>
         /// <returns>ShippingDetails</returns>
@@ -889,11 +907,11 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder></returns>
             public AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder> airlineTravelDetails()
             {
-                if (!this.properties.ContainsKey(CardPaymentsConstants.airlineTravelDetails))
+                if (!properties.ContainsKey(GlobalConstants.airlineTravelDetails))
                 {
-                    this.properties[CardPaymentsConstants.airlineTravelDetails] = new AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>(this);
+                    properties[GlobalConstants.airlineTravelDetails] = new AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>(this);
                 }
-                return this.properties[CardPaymentsConstants.airlineTravelDetails] as AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>;
+                return properties[GlobalConstants.airlineTravelDetails] as AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>;
             }
         }
     }

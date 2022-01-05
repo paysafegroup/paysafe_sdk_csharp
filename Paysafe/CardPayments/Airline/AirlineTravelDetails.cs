@@ -18,11 +18,12 @@ namespace Paysafe.CardPayments
         {
             {GlobalConstants.passengerName, STRING_TYPE },
             {GlobalConstants.departureDate,  STRING_TYPE },
-            {GlobalConstants.ticket, typeof(Ticket) },
             {GlobalConstants.origin,  STRING_TYPE },
             {GlobalConstants.computerizedReservationSystem, GlobalConstants.enumComputerizedReservationSystem },
+            {GlobalConstants.ticket, typeof(Ticket) },
             {GlobalConstants.customerReferenceNumber, STRING_TYPE },
             {GlobalConstants.travelAgency, typeof(TravelAgency) },
+            {GlobalConstants.tripLegs, typeof(TripLegs) },
         };
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string passengerName()
         {
-            return this.getProperty(GlobalConstants.passengerName);
+            return getProperty(GlobalConstants.passengerName);
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void passengerName(string data)
         {
-            this.setProperty(GlobalConstants.passengerName, data);
+            setProperty(GlobalConstants.passengerName, data);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string origin()
         {
-            return this.getProperty(GlobalConstants.origin);
+            return getProperty(GlobalConstants.origin);
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void origin(string data)
         {
-            this.setProperty(GlobalConstants.origin, data);
+            setProperty(GlobalConstants.origin, data);
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace Paysafe.CardPayments
         /// <returns>string</returns>
         public string departureDate()
         {
-            return this.getProperty(GlobalConstants.departureDate);
+            return getProperty(GlobalConstants.departureDate);
         }
 
         /// <summary>
@@ -76,16 +77,16 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void departureDate(string data)
         {
-            this.setProperty(GlobalConstants.departureDate, data);
+            setProperty(GlobalConstants.departureDate, data);
         }
 
         /// <summary>
         /// Get information about the Airline Ticket and if the ticket is restricted.
         /// </summary>
-        /// <returns>string</returns>
+        /// <returns>Ticket</returns>
         public Ticket ticket()
         {
-            return this.getProperty(GlobalConstants.ticket);
+            return getProperty(GlobalConstants.ticket);
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace Paysafe.CardPayments
         /// <returns>void</returns>
         public void ticket(Ticket data)
         {
-            this.setProperty(GlobalConstants.ticket, data);
+            setProperty(GlobalConstants.ticket, data);
         }
 
         /// <summary>
@@ -133,11 +134,46 @@ namespace Paysafe.CardPayments
             setProperty(GlobalConstants.customerReferenceNumber, data);
         }
 
+        /// <summary>
+        /// Get information about the travel agency if the ticket was issued by a travel agency.
+        /// </summary>
+        /// <returns>TravelAgency</returns>
+        public TravelAgency travelAgency()
+        {
+            return getProperty(GlobalConstants.travelAgency);
+        }
+
+        /// <summary>
+        /// Set information about the travel agency if the ticket was issued by a travel agency.
+        /// </summary>
+        /// <returns>void</returns>
+        public void travelAgency(TravelAgency data)
+        {
+            setProperty(GlobalConstants.travelAgency, data);
+        }
+
+        /// <summary>
+        /// Get a grouping of up to four trip legs. Each leg provides detailed itinerary data.
+        /// </summary>
+        /// <returns>TripLegs</returns>
+        public TripLegs tripLegs()
+        {
+            return getProperty(GlobalConstants.tripLegs);
+        }
+
+        /// <summary>
+        /// Set a grouping of up to four trip legs. Each leg provides detailed itinerary data.
+        /// </summary>
+        /// <returns>void</returns>
+        public void tripLegs(TripLegs data)
+        {
+            setProperty(GlobalConstants.tripLegs, data);
+        }
 
         /// <summary>
         /// AirlineTravelDetailsBuilder<typeparam name="TBLDR"></typeparam> will allow a AirlineTravelDetails to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
-        /// get back to the parent builder
+        /// get back to the parent builder.
         /// </summary>
         public class AirlineTravelDetailsBuilder<TBLDR> : NestedJSONBuilder<AirlineTravelDetails, TBLDR>
             where TBLDR : GenericJSONBuilder
@@ -159,7 +195,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> passengerName(string data)
             {
-                this.properties[GlobalConstants.passengerName] = data;
+                properties[GlobalConstants.passengerName] = data;
                 return this;
             }
 
@@ -170,7 +206,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> origin(string data)
             {
-                this.properties[GlobalConstants.origin] = data;
+                properties[GlobalConstants.origin] = data;
                 return this;
             }
 
@@ -180,7 +216,7 @@ namespace Paysafe.CardPayments
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> departureDate(string data)
             {
-                this.properties[GlobalConstants.departureDate] = data;
+                properties[GlobalConstants.departureDate] = data;
                 return this;
             }
 
@@ -190,17 +226,17 @@ namespace Paysafe.CardPayments
             /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
             public Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>> ticket()
             {
-                if (!this.properties.ContainsKey(GlobalConstants.ticket))
+                if (!properties.ContainsKey(GlobalConstants.ticket))
                 {
-                    this.properties[GlobalConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
+                    properties[GlobalConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
                 }
-                return this.properties[GlobalConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
+                return properties[GlobalConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
 
             /// <summary>
             /// Set computerized reservation system used to make the reservation and purchase the ticket. Example: 'STRT'
             /// </summary>
-            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> computerizedReservationSystem(string data)
             {
                 properties[GlobalConstants.computerizedReservationSystem] = data;
@@ -210,7 +246,7 @@ namespace Paysafe.CardPayments
             /// <summary>
             /// Set the code that the cardholder supplied to the card acceptor.
             /// </summary>
-            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
             public AirlineTravelDetailsBuilder<TBLDR> customerReferenceNumber(string data)
             {
                 properties[GlobalConstants.customerReferenceNumber] = data;
@@ -220,7 +256,7 @@ namespace Paysafe.CardPayments
             /// <summary>
             /// Set information about the travel agency if the ticket was issued by a travel agency.
             /// </summary>
-            /// <returns>Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            /// <returns>TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
             public TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>> travelAgency()
             {
                 if (!properties.ContainsKey(GlobalConstants.travelAgency))
@@ -228,6 +264,19 @@ namespace Paysafe.CardPayments
                     properties[GlobalConstants.travelAgency] = new TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
                 }
                 return properties[GlobalConstants.travelAgency] as TravelAgency.TravelAgencyBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
+            }
+
+            /// <summary>
+            /// Set a grouping of up to four trip legs. Each leg provides detailed itinerary data.
+            /// </summary>
+            /// <returns>TripLegs.TripLegsBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            public TripLegs.TripLegsBuilder<AirlineTravelDetailsBuilder<TBLDR>> tripLegs()
+            {
+                if (!properties.ContainsKey(GlobalConstants.tripLegs))
+                {
+                    properties[GlobalConstants.tripLegs] = new TripLegs.TripLegsBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
+                }
+                return properties[GlobalConstants.tripLegs] as TripLegs.TripLegsBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
         }
     }

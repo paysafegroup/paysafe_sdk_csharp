@@ -40,7 +40,7 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
-        /// Name of travel agency if the ticket was issued by a travel agency.
+        /// Get name of travel agency if the ticket was issued by a travel agency.
         /// </summary>
         /// <returns>string</returns>
         public string name()
@@ -66,7 +66,7 @@ namespace Paysafe.CardPayments
             where TBLDR : GenericJSONBuilder
         {
             /// <summary>
-            /// Initialize the Ticket builder within the context of a parent builder.
+            /// Initialize the Travel agency builder within the context of a parent builder.
             /// </summary>
             /// <param name="parent">TBLDR</param>
             public TravelAgencyBuilder(TBLDR parent)

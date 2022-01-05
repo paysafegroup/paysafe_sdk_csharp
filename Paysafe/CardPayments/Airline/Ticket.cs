@@ -30,7 +30,7 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
-        /// Set airline ticket number
+        /// Set airline ticket number.
         /// </summary>
         /// <returns>void</returns>
         public void ticketNumber(string data)
@@ -43,8 +43,8 @@ namespace Paysafe.CardPayments
         ///  This entry should be supplied on CPS/Passenger Transport 1 or 2 transactions 
         ///  if the ticket was purchased as a non-refundable ticket.
         /// </summary>
-        /// <returns>string</returns>
-        public string isRestrictedTicket()
+        /// <returns>bool</returns>
+        public bool isRestrictedTicket()
         {
             return getProperty(GlobalConstants.isRestrictedTicket);
         }
@@ -77,7 +77,7 @@ namespace Paysafe.CardPayments
             }
 
             /// <summary>
-            /// Set the ticket number
+            /// Set the ticket number.
             /// </summary>
             /// <param name=data>string</param>
             /// <returns>TicketBuilder<TBLDR></returns>
@@ -97,7 +97,6 @@ namespace Paysafe.CardPayments
                 properties[GlobalConstants.isRestrictedTicket] = data;
                 return this;
             }
-
         }
     }
 }
