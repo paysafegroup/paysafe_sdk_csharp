@@ -69,7 +69,8 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.acquirerResponse, typeof(AcquirerResponse)},
             {CardPaymentsConstants.error, typeof(OptError)},
             {CardPaymentsConstants.links, typeof(List<Link>)},
-            {CardPaymentsConstants.authorizationId, STRING_TYPE}
+            {CardPaymentsConstants.authorizationId, STRING_TYPE},
+            {CardPaymentsConstants.airlineTravelDetails, typeof(AirlineTravelDetails) }
          };
 
 
@@ -308,6 +309,25 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
+        /// Get the airline travel details
+        /// </summary>
+        /// <returns>AirlineTravelDetails</returns>
+        public AirlineTravelDetails airlineTravelDetails()
+        {
+            return getProperty(GlobalConstants.airlineTravelDetails);
+        }
+
+        /// <summary>
+        /// Set the airline travel details
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineTravelDetails(AirlineTravelDetails data)
+        {
+            setProperty(GlobalConstants.airlineTravelDetails, data);
+        }
+
+
+        /// <summary>
         /// Get a new SettlementBuilder
         /// </summary>
         /// <returns>SettlementBuilder</returns>
@@ -376,6 +396,19 @@ namespace Paysafe.CardPayments
             {
                 this.properties[CardPaymentsConstants.authorizationId] = data;
                 return this;
+            }
+
+            /// <summary>
+            /// Build an AirlineTravelDetails object within this settlement.
+            /// </summary>
+            /// <returns>AirlineTravelDetails.AirlineTravelDetailsBuilder<SettlementBuilder></returns>
+            public AirlineTravelDetails.AirlineTravelDetailsBuilder<SettlementBuilder> airlineTravelDetails()
+            {
+                if (!properties.ContainsKey(GlobalConstants.airlineTravelDetails))
+                {
+                    properties[GlobalConstants.airlineTravelDetails] = new AirlineTravelDetails.AirlineTravelDetailsBuilder<SettlementBuilder>(this);
+                }
+                return properties[GlobalConstants.airlineTravelDetails] as AirlineTravelDetails.AirlineTravelDetailsBuilder<SettlementBuilder>;
             }
         }
     }
