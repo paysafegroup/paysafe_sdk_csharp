@@ -476,6 +476,39 @@ namespace Paysafe.Common
         public static readonly string VD = "VD";
         public static readonly string VE = "VE";
 
+        public static readonly string airlineTravelDetails = "airlineTravelDetails";
+        public static readonly string passengerName = "passengerName";
+        public static readonly string ticket = "ticket";
+        public static readonly string ticketNumber = "ticketNumber";
+        public static readonly string computerizedReservationSystem = "computerizedReservationSystem";
+        public static readonly string customerReferenceNumber = "customerReferenceNumber";
+        public static readonly string isRestrictedTicket = "isRestrictedTicket";
+        public static readonly string name = "name";
+        public static readonly string travelAgency = "travelAgency";
+        public static readonly string leg1 = "leg1";
+        public static readonly string leg2 = "leg2";
+        public static readonly string leg3 = "leg3";
+        public static readonly string leg4 = "leg4";
+        public static readonly string carrierCode = "carrierCode";
+        public static readonly string flightNumber = "flightNumber";
+        public static readonly string flight = "flight";
+        public static readonly string serviceClass = "serviceClass";
+        public static readonly string isStopOverAllowed = "isStopOverAllowed";
+        public static readonly string fareBasis = "fareBasis";
+        public static readonly string tripLegs = "tripLegs";
+
+        public static readonly List<string> enumComputerizedReservationSystem = new List<string>
+        {
+            "STRT",
+            "PARS",
+            "DATS",
+            "SABR",
+            "DALA",
+            "BLAN",
+            "DERD",
+            "TUID"
+        };
+
         public static readonly List<string> enumCarrier = new List<string>{
             carrierAPC,
             carrierAnpost,

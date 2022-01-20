@@ -72,6 +72,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.authCode, STRING_TYPE},
             {CardPaymentsConstants.profile, typeof(Profile)},
             {CardPaymentsConstants.billingDetails, typeof(BillingDetails)},
+            {CardPaymentsConstants.airlineTravelDetails, typeof(AirlineTravelDetails) },
             {CardPaymentsConstants.shippingDetails, typeof(ShippingDetails)},
             {CardPaymentsConstants.recurring, CardPaymentsConstants.enumRecurring},
             {CardPaymentsConstants.customerIp, STRING_TYPE},
@@ -292,6 +293,24 @@ namespace Paysafe.CardPayments
         public void billingDetails(BillingDetails data)
         {
             this.setProperty(CardPaymentsConstants.billingDetails, data);
+        }
+
+        /// <summary>
+        /// Get the airline travel details
+        /// </summary>
+        /// <returns>AirlineTravelDetails</returns>
+        public AirlineTravelDetails airlineTravelDetails()
+        {
+            return getProperty(GlobalConstants.airlineTravelDetails);
+        }
+
+        /// <summary>
+        /// Set the airline travel details
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineTravelDetails(AirlineTravelDetails data)
+        {
+            setProperty(GlobalConstants.airlineTravelDetails, data);
         }
 
         /// <summary>
@@ -880,6 +899,19 @@ namespace Paysafe.CardPayments
                     this.properties[CardPaymentsConstants.storedCredential] = new StoredCredential.StoredCredentialBuilder<AuthorizationBuilder>(this);
                 }
                 return this.properties[CardPaymentsConstants.storedCredential] as StoredCredential.StoredCredentialBuilder<AuthorizationBuilder>;
+            }
+
+            /// <summary>
+            /// Build an AirlineTravelDetails object within this authorization.
+            /// </summary>
+            /// <returns>AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder></returns>
+            public AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder> airlineTravelDetails()
+            {
+                if (!properties.ContainsKey(GlobalConstants.airlineTravelDetails))
+                {
+                    properties[GlobalConstants.airlineTravelDetails] = new AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>(this);
+                }
+                return properties[GlobalConstants.airlineTravelDetails] as AirlineTravelDetails.AirlineTravelDetailsBuilder<AuthorizationBuilder>;
             }
         }
     }
