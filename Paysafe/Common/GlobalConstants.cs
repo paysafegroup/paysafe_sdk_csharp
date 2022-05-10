@@ -225,8 +225,21 @@ namespace Paysafe.Common
         public static readonly string accountTypeChecking = "CHECKING";
         public static readonly string accountTypeLoan = "LOAN";
         public static readonly string accountTypeSavings = "SAVINGS";
+        public static readonly string phoneNumber = "phoneNumber";
+        public static readonly string passengerCode = "passengerCode";
+        public static readonly string passenger1 = "passenger1";
+        public static readonly string passenger2 = "passenger2";
+        public static readonly string passenger3 = "passenger3";
+        public static readonly string passenger4 = "passenger4";
+        public static readonly string passenger5 = "passenger5";
+        public static readonly string passenger6 = "passenger6";
+        public static readonly string passenger7 = "passenger7";
+        public static readonly string passenger8 = "passenger8";
+        public static readonly string passenger9 = "passenger9";
+        public static readonly string passenger10 = "passenger10";
 
-       
+
+
         public static readonly string achBankAccounts = "achBankAccounts";
         public static readonly string bacsBankAccounts = "bacsBankAccounts";
         public static readonly string sepaBankAccounts = "sepaBankAccounts";
@@ -259,6 +272,8 @@ namespace Paysafe.Common
         public static readonly string formatXML = "xml";
         public static readonly string genderFemale = "F";
         public static readonly string genderMale = "M";
+        public static readonly string genderOther = "O";
+        public static readonly string genderNotSpecified = "N";
         public static readonly string localeEnGb = "en_GB";
         public static readonly string localeEnUs = "en_US";
         public static readonly string localeFrCa = "fr_CA";
@@ -485,6 +500,8 @@ namespace Paysafe.Common
         public static readonly string isRestrictedTicket = "isRestrictedTicket";
         public static readonly string name = "name";
         public static readonly string travelAgency = "travelAgency";
+        public static readonly string travelAgencyAddress = "travelAgencyAddress";
+        public static readonly string passengers = "passengers";
         public static readonly string leg1 = "leg1";
         public static readonly string leg2 = "leg2";
         public static readonly string leg3 = "leg3";
@@ -496,16 +513,21 @@ namespace Paysafe.Common
         public static readonly string isStopOverAllowed = "isStopOverAllowed";
         public static readonly string fareBasis = "fareBasis";
         public static readonly string tripLegs = "tripLegs";
+        public static readonly string passengerNameRecord = "passengerNameRecord";
+        public static readonly string additionalBookingReference = "additionalBookingReference";
+        public static readonly string totalFare = "totalFare";
+        public static readonly string totalFee = "totalFee";
+        public static readonly string totalTaxes = "totalTaxes";
 
         public static readonly List<string> enumComputerizedReservationSystem = new List<string>
         {
-            "STRT",
-            "PARS",
-            "DATS",
-            "SABR",
-            "DALA",
             "BLAN",
+            "DALA",
+            "DATS",
             "DERD",
+            "PARS",
+            "SABR",
+            "STRT",
             "TUID"
         };
 
@@ -527,6 +549,13 @@ namespace Paysafe.Common
             genderMale,
             genderFemale
         };
+        public static readonly List<string> enumGenderPassenger = new List<string>()
+        {
+            genderMale,
+            genderFemale,
+            genderOther,
+            genderNotSpecified
+        };
         public static readonly List<string> enumLocale = new List<string>() {
             localeEnUs,
             localeFrCa,
@@ -540,56 +569,56 @@ namespace Paysafe.Common
         };
         public static readonly List<string> enumCountry = new List<string>()
         {
-            "AF", "AX", "AL", "DZ", "AS",
-        "AD", "AO", "AI", "AQ", "AG",
-        "AR", "AM", "AW", "AU", "AT",
-        "AZ", "BS", "BH", "BD", "BD",
-        "BY", "BE", "BZ", "BJ", "BM",
-        "BT", "BO", "BQ", "BA", "BW",
-        "BV", "BR", "IO", "BN", "BG",
-        "BF", "BI", "KH", "CM", "CA",
-        "CV", "KY", "CF", "TD", "CL",
-        "CN", "CX", "CC", "CO", "KM",
-        "CG", "CD", "CK", "CR", "CI",
-        "HR", "CU", "CW", "CY", "CZ",
-        "DK", "DJ", "DM", "DO", "EC",
-        "EG", "SV", "GQ", "ER", "EE",
-        "ET", "FK", "FO", "FJ", "FI",
-        "FR", "GF", "PF", "TF", "GA",
-        "GM", "GE", "DE", "GH", "GI",
-        "GR", "GL", "GD", "GP", "GU",
-        "GT", "GG", "GN", "GW", "GY",
-        "HT", "HM", "HN", "HK", "HU",
-        "IS", "IN", "ID", "IR", "IQ",
-        "IE", "IM", "IL", "IT", "JM",
-        "JP", "JE", "JO", "KZ", "KE",
-        "KI", "KP", "KR", "KW", "KG",
-        "LA", "LV", "LB", "LS", "LR",
-        "LY", "LI", "LT", "LU", "MO",
-        "MK", "MG", "MW", "MY", "MV",
-        "ML", "MT", "MH", "MQ", "MR",
-        "MU", "YT", "MX", "FM", "MD",
-        "MC", "MN", "ME", "MS", "MA",
-        "MZ", "MM", "NA", "NR", "NP",
-        "NC", "NZ", "NI", "NE", "NG",
-        "NU", "NF", "MP", "NO", "OM",
-        "PK", "PW", "PS", "PA", "PG",
-        "PY", "PE", "PH", "PN", "PL",
-        "PT", "PR", "QA", "RE", "RO",
-        "RU", "RW", "BL", "SH", "KN",
-        "LC", "MF", "VC", "WS", "SM",
-        "ST", "SA", "SN", "RS", "SC",
-        "SL", "SG", "SX", "SK", "SI",
-        "SB", "SO", "ZA", "GS", "SS",
-        "ES", "LK", "PM", "SD", "SR",
-        "SJ", "SZ", "SE", "CH", "SY",
-        "TW", "TJ", "TZ", "TH", "NL",
-        "TL", "TG", "TK", "TO", "TT",
-        "TN", "TR", "TM", "TC", "TV",
-        "UG", "UA", "AE", "GB", "US",
-        "UM", "UY", "UZ", "VU", "VA",
-        "VE", "VN", "VG", "VI", "WF",
-        "EH", "YE", "ZM", "ZW" 
+            "AD", "AE", "AF", "AG", "AI",
+            "AL", "AM", "AO", "AQ", "AR",
+            "AS", "AT", "AU", "AW", "AX",
+            "AZ", "BA", "BB", "BD", "BE",
+            "BF", "BG", "BH", "BI", "BJ",
+            "BL", "BM", "BN", "BO", "BQ",
+            "BR", "BS", "BT", "BV", "BW",
+            "BY", "BZ", "CA", "CC", "CD",
+            "CF", "CG", "CH", "CI", "CK",
+            "CL", "CM", "CN", "CO", "CR",
+            "CU", "CV", "CW", "CX", "CY",
+            "CZ", "DE", "DJ", "DK", "DM",
+            "DO", "DZ", "EC", "EE", "EG",
+            "EH", "ER", "ES", "ET", "FI",
+            "FJ", "FK", "FM", "FO", "FR",
+            "GA", "GB", "GD", "GE", "GF",
+            "GG", "GH", "GI", "GL", "GM",
+            "GN", "GP", "GQ", "GR", "GS",
+            "GT", "GU", "GW", "GY", "HK",
+            "HM", "HN", "HR", "HT", "HU",
+            "ID", "IE", "IL", "IM", "IN",
+            "IO", "IQ", "IR", "IS", "IT",
+            "JE", "JM", "JO", "JP", "KE",
+            "KG", "KH", "KI", "KM", "KN",
+            "KP", "KR", "KW", "KY", "KZ",
+            "LA", "LB", "LC", "LI", "LK",
+            "LR", "LS", "LT", "LU", "LV",
+            "LY", "MA", "MC", "MD", "ME",
+            "MF", "MG", "MH", "MK", "ML",
+            "MM", "MN", "MO", "MP", "MQ",
+            "MR", "MS", "MT", "MU", "MV",
+            "MW", "MX", "MY", "MZ", "NA",
+            "NC", "NE", "NF", "NG", "NI",
+            "NL", "NO", "NP", "NR", "NU",
+            "NZ", "OM", "PA", "PE", "PF",
+            "PG", "PH", "PK", "PL", "PM",
+            "PN", "PR", "PS", "PT", "PW",
+            "PY", "QA", "RE", "RO", "RS",
+            "RU", "RW", "SA", "SB", "SC",
+            "SD", "SE", "SG", "SH", "SI",
+            "SJ", "SK", "SL", "SM", "SN",
+            "SO", "SR", "SS", "ST", "SV",
+            "SX", "SY", "SZ", "TC", "TD",
+            "TF", "TG", "TH", "TJ", "TK",
+            "TL", "TM", "TN", "TO", "TR",
+            "TT", "TV", "TW", "TZ", "UA",
+            "UG", "UM", "US", "UY", "UZ",
+            "VA", "VC", "VE", "VG", "VI",
+            "VN", "VU", "WF", "WS", "YE",
+            "YT", "ZA", "ZM", "ZW"
         };
         public static readonly List<string> enumColorDepthBits = new List<string>()
         {

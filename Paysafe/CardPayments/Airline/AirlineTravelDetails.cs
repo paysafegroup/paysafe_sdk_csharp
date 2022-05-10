@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Paysafe.CardPayments.Airline.Passenger;
 using Paysafe.Common;
 
 namespace Paysafe.CardPayments
@@ -21,9 +22,15 @@ namespace Paysafe.CardPayments
             {GlobalConstants.origin,  STRING_TYPE },
             {GlobalConstants.computerizedReservationSystem, GlobalConstants.enumComputerizedReservationSystem },
             {GlobalConstants.ticket, typeof(Ticket) },
+            {GlobalConstants.passengers, typeof(Passengers) },
             {GlobalConstants.customerReferenceNumber, STRING_TYPE },
             {GlobalConstants.travelAgency, typeof(TravelAgency) },
             {GlobalConstants.tripLegs, typeof(TripLegs) },
+            {GlobalConstants.passengerNameRecord, STRING_TYPE },
+            {GlobalConstants.additionalBookingReference, STRING_TYPE },
+            {GlobalConstants.totalFare, INT_TYPE },
+            {GlobalConstants.totalFee, INT_TYPE },
+            {GlobalConstants.totalTaxes, INT_TYPE },
         };
 
         /// <summary>
@@ -99,6 +106,24 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
+        /// Get passengers information.
+        /// </summary>
+        /// <returns>Passangers</returns>
+        public Passengers passengers()
+        {
+            return getProperty(GlobalConstants.passengers);
+        }
+
+        /// <summary>
+        /// Set passengers information.
+        /// </summary>
+        /// <returns>void</returns>
+        public void passengers(Passengers data)
+        {
+            setProperty(GlobalConstants.passengers, data);
+        }
+
+        /// <summary>
         /// Get computerized reservation system used to make the reservation and purchase the ticket.
         /// </summary>
         /// <returns>string</returns>
@@ -171,6 +196,96 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
+        /// Get name of the passenger record.
+        /// </summary>
+        /// <returns>string</returns>
+        public string passengerNameRecord()
+        {
+            return getProperty(GlobalConstants.passengerNameRecord);
+        }
+
+        /// <summary>
+        /// Set name of the passenger record.
+        /// </summary>
+        /// <returns>void</returns>
+        public void passengerNameRecord(string data)
+        {
+            setProperty(GlobalConstants.passengerNameRecord, data);
+        }
+
+        /// <summary>
+        /// Typically used for the PNR, but should allow an airline to specify any other reference if they feel fit.
+        /// </summary>
+        /// <returns>string</returns>
+        public string additionalBookingReference()
+        {
+            return getProperty(GlobalConstants.additionalBookingReference);
+        }
+
+        /// <summary>
+        /// Typically used for the PNR, but should allow an airline to specify any other reference if they feel fit.
+        /// </summary>
+        /// <returns>void</returns>
+        public void additionalBookingReference(string data)
+        {
+            setProperty(GlobalConstants.additionalBookingReference, data);
+        }
+
+        /// <summary>
+        /// Total fare for all legs on the ticket, excluding taxes and fees.
+        /// </summary>
+        /// <returns>int</returns>
+        public int totalFare()
+        {
+            return getProperty(GlobalConstants.totalFare);
+        }
+
+        /// <summary>
+        /// Total fare for all legs on the ticket, excluding taxes and fees.
+        /// </summary>
+        /// <returns>void</returns>
+        public void totalFare(int data)
+        {
+            setProperty(GlobalConstants.totalFare, data);
+        }
+
+        /// <summary>
+        /// Total fee for all legs on the ticket.
+        /// </summary>
+        /// <returns>int</returns>
+        public int totalFee()
+        {
+            return getProperty(GlobalConstants.totalFee);
+        }
+
+        /// <summary>
+        /// Total fee for all legs on the ticket.
+        /// </summary>
+        /// <returns>void</returns>
+        public void totalFee(int data)
+        {
+            setProperty(GlobalConstants.totalFee, data);
+        }
+
+        /// <summary>
+        /// Total taxes for all legs on the ticket.
+        /// </summary>
+        /// <returns>int</returns>
+        public int totalTaxes()
+        {
+            return getProperty(GlobalConstants.totalTaxes);
+        }
+
+        /// <summary>
+        /// Total taxes for all legs on the ticket.
+        /// </summary>
+        /// <returns>void</returns>
+        public void totalTaxes(int data)
+        {
+            setProperty(GlobalConstants.totalTaxes, data);
+        }
+
+        /// <summary>
         /// AirlineTravelDetailsBuilder<typeparam name="TBLDR"></typeparam> will allow a AirlineTravelDetails to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
         /// get back to the parent builder.
@@ -189,7 +304,7 @@ namespace Paysafe.CardPayments
             }
 
             /// <summary>
-            /// Set the passangerName
+            /// Set the passengerName
             /// </summary>
             /// <param name=data>string</param>
             /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
@@ -231,6 +346,20 @@ namespace Paysafe.CardPayments
                     properties[GlobalConstants.ticket] = new Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
                 }
                 return properties[GlobalConstants.ticket] as Ticket.TicketBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
+            }
+
+
+            /// <summary>
+            /// Set passengers information.
+            /// </summary>
+            /// <returns>Passengers.PassengersBuilder<AirlineTravelDetailsBuilder<TBLDR>></returns>
+            public Passengers.PassengersBuilder<AirlineTravelDetailsBuilder<TBLDR>> passengers()
+            {
+                if (!properties.ContainsKey(GlobalConstants.passengers))
+                {
+                    properties[GlobalConstants.passengers] = new Passengers.PassengersBuilder<AirlineTravelDetailsBuilder<TBLDR>>(this);
+                }
+                return properties[GlobalConstants.passengers] as Passengers.PassengersBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
 
             /// <summary>
@@ -278,6 +407,57 @@ namespace Paysafe.CardPayments
                 }
                 return properties[GlobalConstants.tripLegs] as TripLegs.TripLegsBuilder<AirlineTravelDetailsBuilder<TBLDR>>;
             }
+
+            /// <summary>
+            /// Set name of the passenger record.
+            /// </summary>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> passengerNameRecord(string data)
+            {
+                properties[GlobalConstants.passengerNameRecord] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Typically used for the PNR, but should allow an airline to specify any other reference if they feel fit.
+            /// </summary>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> additionalBookingReference(string data)
+            {
+                properties[GlobalConstants.additionalBookingReference] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Total fare for all legs on the ticket, excluding taxes and fees.
+            /// </summary>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> totalFare(int data)
+            {
+                properties[GlobalConstants.totalFare] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Total fee for all legs on the ticket.
+            /// </summary>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> totalFee(int data)
+            {
+                properties[GlobalConstants.totalFee] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Total taxes for all legs on the ticket.
+            /// </summary>
+            /// <returns>AirlineTravelDetailsBuilder<TBLDR></returns>
+            public AirlineTravelDetailsBuilder<TBLDR> totalTaxes(int data)
+            {
+                properties[GlobalConstants.totalTaxes] = data;
+                return this;
+            }
+
         }
     }
 }
