@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Paysafe.CardPayments.Airline.Passenger;
+using Paysafe.CardPayments.Airline;
 using Paysafe.Common;
 
 namespace Paysafe.CardPayments

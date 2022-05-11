@@ -1,7 +1,7 @@
 ﻿using Paysafe.Common;
 using System.Collections.Generic;
 
-namespace Paysafe.CardPayments.Airline.Passenger
+namespace Paysafe.CardPayments.Airline
 {
     public class Passenger : JSONObject
     {

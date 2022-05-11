@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Paysafe.CardPayments.Airline.Passenger
+namespace Paysafe.CardPayments.Airline
 {
     public class Passengers : JSONObject
     {
@@ -192,7 +192,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
         }
 
         /// <summary>
-        /// Get passenger 19.
+        /// Get passenger 10.
         /// </summary>
         /// <returns>Passenger</returns>
         public Passenger passenger10()
@@ -214,7 +214,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
         /// get back to the parent builder.
         /// </summary>
-        public class PassengersBuilder<TBLDR> : NestedJSONBuilder<Passenger, TBLDR>
+        public class PassengersBuilder<TBLDR> : NestedJSONBuilder<Passengers, TBLDR>
             where TBLDR : GenericJSONBuilder
         {
             /// <summary>
@@ -231,7 +231,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 1.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger1()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger1))
@@ -245,7 +245,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 2.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger2()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger2))
@@ -259,7 +259,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 3.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger3()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger3))
@@ -273,7 +273,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 4.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger4()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger4))
@@ -287,7 +287,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 5.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger5()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger5))
@@ -301,7 +301,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 6.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger6()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger6))
@@ -315,7 +315,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 7.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returnsPassenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger7()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger7))
@@ -329,7 +329,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 8.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger8()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger8))
@@ -343,7 +343,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 9.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger9()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger9))
@@ -357,7 +357,7 @@ namespace Paysafe.CardPayments.Airline.Passenger
             /// Set passenger 10.
             /// </summary>
             /// <param name=data>Passenger</param>
-            /// <returns>PassengersBuilder<TBLDR></returns>
+            /// <returns>Passenger.PassengerBuilder<PassengersBuilder<TBLDR>></returns>
             public Passenger.PassengerBuilder<PassengersBuilder<TBLDR>> passenger10()
             {
                 if (!properties.ContainsKey(GlobalConstants.passenger10))

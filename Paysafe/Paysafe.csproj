@@ -45,6 +45,9 @@
     <Compile Include="CardPayments\Airline\AirlineTravelDetails.cs" />
     <Compile Include="CardPayments\Airline\Flight.cs" />
     <Compile Include="CardPayments\Airline\Leg.cs" />
+    <Compile Include="CardPayments\Airline\Passenger.cs" />
+    <Compile Include="CardPayments\Airline\Passengers.cs" />
+    <Compile Include="CardPayments\Airline\TravelAgencyAddress.cs" />
     <Compile Include="CardPayments\PaysafeAuthentication.cs" />
     <Compile Include="CardPayments\AuthorizationReversal.cs" />
     <Compile Include="CardPayments\BillingDetails.cs" />

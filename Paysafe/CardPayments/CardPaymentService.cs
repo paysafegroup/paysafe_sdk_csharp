@@ -83,7 +83,8 @@ namespace Paysafe.CardPayments
 		CardPaymentsConstants.storedCredential,
                 CardPaymentsConstants.recurring,
                 CardPaymentsConstants.merchantDescriptor,
-                CardPaymentsConstants.accordD
+                CardPaymentsConstants.accordD,
+                CardPaymentsConstants.airlineTravelDetails,
             });
 		
             Request request = new Request(
@@ -183,7 +184,8 @@ namespace Paysafe.CardPayments
             settle.setRequiredFields(new List<string> { CardPaymentsConstants.merchantRefNum });
             settle.setOptionalFields(new List<string> {
                 CardPaymentsConstants.amount,
-                CardPaymentsConstants.dupCheck
+                CardPaymentsConstants.dupCheck,
+                CardPaymentsConstants.airlineTravelDetails
             });
 
             Request request = new Request(
