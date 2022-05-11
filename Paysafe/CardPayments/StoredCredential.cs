@@ -141,18 +141,18 @@ namespace Paysafe.CardPayments
             /// Set the type
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> type(string data)
             {
                 this.properties[GlobalConstants.type] = data;
                 return this;
             }
-            
+
             /// <summary>
             /// Set the occurrence
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> occurrence(string data)
             {
                 this.properties[GlobalConstants.occurrence] = data;
@@ -165,7 +165,7 @@ namespace Paysafe.CardPayments
             /// type=RECURRING/TOPUP, occurrence=INITIAL.
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> initialTransactionId(string data)
             {
                 this.properties[GlobalConstants.initialTransactionId] = data;
@@ -176,7 +176,7 @@ namespace Paysafe.CardPayments
             /// Set the ID of the initial Recurring Payment transaction in case this transaction was processed through external PSP.
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> externalInitialTransactionId(string data)
             {
                 this.properties[GlobalConstants.externalInitialTransactionId] = data;
