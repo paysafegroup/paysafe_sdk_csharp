@@ -82,7 +82,7 @@ namespace Paysafe.CardPayments
         /// <summary>
         /// Get the ID of the initial Recurring Payment transaction. 
         /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
-        /// type=RECURRING/TOPUP, occurrence=INITIAL.
+        /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
         /// </summary>
         /// <returns>string</returns>
         public string initialTransactionId()
@@ -93,7 +93,7 @@ namespace Paysafe.CardPayments
         /// <summary>
         /// Set the ID of the initial Recurring Payment transaction. 
         /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
-        /// type=RECURRING/TOPUP, occurrence=INITIAL.
+        /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
         /// </summary>
         /// <returns>void</returns>
         public void initialTransactionId(string data)
@@ -162,7 +162,7 @@ namespace Paysafe.CardPayments
             /// <summary>
             /// Set the ID of the initial Recurring Payment transaction. 
             /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
-            /// type=RECURRING/TOPUP, occurrence=INITIAL.
+            /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
             /// </summary>
             /// <param name=data>string</param>
             /// <returns>StoredCredentialBuilder<TBLDR></returns>
