@@ -127,6 +127,8 @@ namespace Paysafe.Common
         public static readonly string nationality = "nationality";
         public static readonly string nickName = "nickName";
         public static readonly string occurrence = "occurrence";
+        public static readonly string initialTransactionId = "initialTransactionId";
+        public static readonly string externalInitialTransactionId = "externalInitialTransactionId";
         public static readonly string occurrenceInitial = "INITIAL";
         public static readonly string occurrenceSubsequent = "SUBSEQUENT";
         public static readonly string orderId = "orderId";

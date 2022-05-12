@@ -17,10 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Paysafe.Common;
 
 namespace Paysafe.CardPayments
@@ -38,8 +35,11 @@ namespace Paysafe.CardPayments
 
         private static new Dictionary<string, object> fieldTypes = new Dictionary<string, object>
         {
-            {CardPaymentsConstants.type, CardPaymentsConstants.enumType},
-            {CardPaymentsConstants.occurrence, CardPaymentsConstants.enumOccurrence}
+            {GlobalConstants.type, CardPaymentsConstants.enumType},
+            {GlobalConstants.occurrence, CardPaymentsConstants.enumOccurrence},
+            {GlobalConstants.initialTransactionId, STRING_TYPE },
+            {GlobalConstants.externalInitialTransactionId, STRING_TYPE }
+
         };
 
         /// <summary>
@@ -78,6 +78,47 @@ namespace Paysafe.CardPayments
             this.setProperty(CardPaymentsConstants.occurrence, data);
         }
 
+
+        /// <summary>
+        /// Get the ID of the initial Recurring Payment transaction. 
+        /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
+        /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
+        /// </summary>
+        /// <returns>string</returns>
+        public string initialTransactionId()
+        {
+            return this.getProperty(GlobalConstants.initialTransactionId);
+        }
+
+        /// <summary>
+        /// Set the ID of the initial Recurring Payment transaction. 
+        /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
+        /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
+        /// </summary>
+        /// <returns>void</returns>
+        public void initialTransactionId(string data)
+        {
+            this.setProperty(GlobalConstants.initialTransactionId, data);
+        }
+
+        /// <summary>
+        /// Get the ID of the initial Recurring Payment transaction in case this transaction was processed through external PSP.
+        /// </summary>
+        /// <returns>string</returns>
+        public string externalInitialTransactionId()
+        {
+            return this.getProperty(GlobalConstants.externalInitialTransactionId);
+        }
+
+        /// <summary>
+        /// Set the ID of the initial Recurring Payment transaction in case this transaction was processed through external PSP.
+        /// </summary>
+        /// <returns>void</returns>
+        public void externalInitialTransactionId(string data)
+        {
+            this.setProperty(GlobalConstants.externalInitialTransactionId, data);
+        }
+
         /// <summary>
         /// StoredCredentialBuilder<typeparam name="TBLDR"></typeparam> will allow a StoredCredential to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
@@ -100,21 +141,45 @@ namespace Paysafe.CardPayments
             /// Set the type
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> type(string data)
             {
-                this.properties[CardPaymentsConstants.type] = data;
+                this.properties[GlobalConstants.type] = data;
                 return this;
             }
-            
+
             /// <summary>
             /// Set the occurrence
             /// </summary>
             /// <param name=data>string</param>
-            /// <returns>AccordDBuilder<TBLDR></returns>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
             public StoredCredentialBuilder<TBLDR> occurrence(string data)
             {
-                this.properties[CardPaymentsConstants.occurrence] = data;
+                this.properties[GlobalConstants.occurrence] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set the ID of the initial Recurring Payment transaction. 
+            /// The id should be stored from the auth response of the transaction indicated as initial with the following: 
+            /// type=RECURRING/TOPUP/ADHOC, occurrence=INITIAL.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
+            public StoredCredentialBuilder<TBLDR> initialTransactionId(string data)
+            {
+                this.properties[GlobalConstants.initialTransactionId] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set the ID of the initial Recurring Payment transaction in case this transaction was processed through external PSP.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>StoredCredentialBuilder<TBLDR></returns>
+            public StoredCredentialBuilder<TBLDR> externalInitialTransactionId(string data)
+            {
+                this.properties[GlobalConstants.externalInitialTransactionId] = data;
                 return this;
             }
         }
