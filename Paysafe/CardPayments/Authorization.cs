@@ -65,6 +65,7 @@ namespace Paysafe.CardPayments
             {CardPaymentsConstants.merchantRefNum, STRING_TYPE},
             {CardPaymentsConstants.amount, INT_TYPE},
             {CardPaymentsConstants.settleWithAuth, BOOL_TYPE},
+            {CardPaymentsConstants.entryMode, CardPaymentsConstants.enumEntryMode},
             {CardPaymentsConstants.availableToSettle, INT_TYPE},
             {CardPaymentsConstants.childAccountNum, STRING_TYPE},
             {CardPaymentsConstants.card, typeof(Card)},
@@ -166,6 +167,24 @@ namespace Paysafe.CardPayments
         public void settleWithAuth(bool data)
         {
             this.setProperty(CardPaymentsConstants.settleWithAuth, data);
+        }
+
+        /// <summary>
+        /// This is how the transaction has been initiated and will affect the way it will be processed.
+        /// </summary>
+        /// <returns>string</returns>
+        public string entryMode()
+        {
+            return this.getProperty(CardPaymentsConstants.entryMode);
+        }
+
+        /// <summary>
+        /// Set how the transaction has been initiated and will affect the way it will be processed.
+        /// </summary>
+        /// <returns>void</returns>
+        public void entryMode(string data)
+        {
+            this.setProperty(CardPaymentsConstants.entryMode, data);
         }
 
         /// <summary>
@@ -762,6 +781,17 @@ namespace Paysafe.CardPayments
             public AuthorizationBuilder settleWithAuth(bool data)
             {
                 this.properties[CardPaymentsConstants.settleWithAuth] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set how the transaction has been initiated and will affect the way it will be processed.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>AuthorizationBuilder</returns>
+            public AuthorizationBuilder entryMode(string data)
+            {
+                this.properties[CardPaymentsConstants.entryMode] = data;
                 return this;
             }
 

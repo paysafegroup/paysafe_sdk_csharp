@@ -166,6 +166,9 @@ namespace Paysafe.Common
         public static readonly string settlementId = "settlementId";
         public static readonly string settlements = "settlements";
         public static readonly string settleWithAuth = "settleWithAuth";
+        public static readonly string entryMode = "entryMode";
+        public static readonly string entryModeMoto = "MOTO";
+        public static readonly string entryModeCardPresent = "CARD_PRESENT";
         public static readonly string shipMethod = "shipMethod";
         public static readonly string shippingDetails = "shippingDetails";
         public static readonly string shoppingCart = "shoppingCart";
