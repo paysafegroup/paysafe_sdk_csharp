@@ -49,6 +49,11 @@ namespace Paysafe.CardPayments
             recurringInitial,
             recurringRecurring
         };
+        public static readonly List<string> enumEntryMode = new List<string>()
+        {
+            entryModeMoto,
+            entryModeCardPresent
+        };
         public static readonly List<string> enumType = new List<string>() {
             typeAdhoc,
             typeTopup,

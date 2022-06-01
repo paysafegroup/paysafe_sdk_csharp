@@ -127,6 +127,8 @@ namespace Paysafe.Common
         public static readonly string nationality = "nationality";
         public static readonly string nickName = "nickName";
         public static readonly string occurrence = "occurrence";
+        public static readonly string initialTransactionId = "initialTransactionId";
+        public static readonly string externalInitialTransactionId = "externalInitialTransactionId";
         public static readonly string occurrenceInitial = "INITIAL";
         public static readonly string occurrenceSubsequent = "SUBSEQUENT";
         public static readonly string orderId = "orderId";
@@ -164,6 +166,9 @@ namespace Paysafe.Common
         public static readonly string settlementId = "settlementId";
         public static readonly string settlements = "settlements";
         public static readonly string settleWithAuth = "settleWithAuth";
+        public static readonly string entryMode = "entryMode";
+        public static readonly string entryModeMoto = "MOTO";
+        public static readonly string entryModeCardPresent = "CARD_PRESENT";
         public static readonly string shipMethod = "shipMethod";
         public static readonly string shippingDetails = "shippingDetails";
         public static readonly string shoppingCart = "shoppingCart";
