@@ -20,7 +20,7 @@ namespace Paysafe.CardPayments
         {
             {GlobalConstants.code, STRING_TYPE },
             {GlobalConstants.name, STRING_TYPE },
-            {GlobalConstants.travelAgencyAddress, typeof(TravelAgencyAddress) }
+            {GlobalConstants.agencyAddress, typeof(TravelAgencyAddress) }
         };
 
         /// <summary>
@@ -63,18 +63,18 @@ namespace Paysafe.CardPayments
         /// Get information about the travel agency if the ticket was issued by a travel agency.
         /// </summary>
         /// <returns>TravelAgencyAddress</returns>
-        public TravelAgencyAddress travelAgencyAddress()
+        public TravelAgencyAddress agencyAddress()
         {
-            return getProperty(GlobalConstants.travelAgencyAddress);
+            return getProperty(GlobalConstants.agencyAddress);
         }
 
         /// <summary>
         /// Set information about the travel agency if the ticket was issued by a travel agency.
         /// </summary>
         /// <returns>void</returns>
-        public void travelAgencyAddress(TravelAgencyAddress data)
+        public void agencyAddress(TravelAgencyAddress data)
         {
-            setProperty(GlobalConstants.travelAgencyAddress, data);
+            setProperty(GlobalConstants.agencyAddress, data);
         }
 
         /// <summary>
@@ -122,13 +122,13 @@ namespace Paysafe.CardPayments
             /// </summary>
             /// <param name=data>TravelAgencyAddress</param>
             /// <returns>TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>></returns>
-            public TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>> travelAgencyAddress()
+            public TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>> agencyAddress()
             {
-                if (!properties.ContainsKey(GlobalConstants.travelAgencyAddress))
+                if (!properties.ContainsKey(GlobalConstants.agencyAddress))
                 {
-                    properties[GlobalConstants.travelAgencyAddress] = new TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>>(this);
+                    properties[GlobalConstants.agencyAddress] = new TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>>(this);
                 }
-                return properties[GlobalConstants.travelAgencyAddress] as TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>>;
+                return properties[GlobalConstants.agencyAddress] as TravelAgencyAddress.TravelAgencyAddressBuilder<TravelAgencyBuilder<TBLDR>>;
                 
             }
         }

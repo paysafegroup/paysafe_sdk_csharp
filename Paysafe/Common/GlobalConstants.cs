@@ -443,6 +443,16 @@ namespace Paysafe.Common
         public static readonly string isAirTravel = "isAirTravel";
         public static readonly string airlineCarrier = "airlineCarrier";
         public static readonly string departureDate = "departureDate";
+        public static readonly string serviceClassFee = "serviceClassFee";
+        public static readonly string departureAirport = "departureAirport";
+        public static readonly string departureTime = "departureTime";
+        public static readonly string arrivalTime = "arrivalTime";
+        public static readonly string conjunctionTicket = "conjunctionTicket";
+        public static readonly string couponNumber = "couponNumber";
+        public static readonly string notation = "notation";
+        public static readonly string taxes = "taxes";
+        public static readonly string airlineName = "airlineName";
+        public static readonly string airlineIcaoCode = "airlineIcaoCode";
         public static readonly string destination = "destination";
         public static readonly string origin = "origin";
         public static readonly string passengerFirstName = "passengerFirstName";
@@ -503,9 +513,15 @@ namespace Paysafe.Common
         public static readonly string computerizedReservationSystem = "computerizedReservationSystem";
         public static readonly string customerReferenceNumber = "customerReferenceNumber";
         public static readonly string isRestrictedTicket = "isRestrictedTicket";
+        public static readonly string cityOfTicketIssuing = "cityOfTicketIssuing";
+        public static readonly string ticketDeliveryMethod = "ticketDeliveryMethod";
+        public static readonly string isAgencyCard = "isAgencyCard";
+        public static readonly string ticketIssueDate = "ticketIssueDate";
+        public static readonly string ticketPrice = "ticketPrice";
+        public static readonly string numberOfPax = "numberOfPax";
         public static readonly string name = "name";
         public static readonly string travelAgency = "travelAgency";
-        public static readonly string travelAgencyAddress = "travelAgencyAddress";
+        public static readonly string agencyAddress = "agencyAddress";
         public static readonly string passengers = "passengers";
         public static readonly string leg1 = "leg1";
         public static readonly string leg2 = "leg2";
@@ -628,6 +644,15 @@ namespace Paysafe.Common
         public static readonly List<string> enumColorDepthBits = new List<string>()
         {
             "1", "4", "8", "15", "16", "24", "32", "48"
+        };
+
+        public static readonly List<string> enumTicketDeliveryMethod = new List<string>
+        {
+            "E_TICKET",
+            "CITY_TICKET_OFFICE",
+            "AIRPORT_TICKET_OFFICE",
+            "TICKET_BY_MAIL",
+            "TICKET_ON_DEPARTURE",
         };
     }
 }

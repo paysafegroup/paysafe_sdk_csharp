@@ -23,6 +23,16 @@ namespace Paysafe.CardPayments
             {GlobalConstants.destination, STRING_TYPE },
             {GlobalConstants.fareBasis, STRING_TYPE },
             {GlobalConstants.departureDate, STRING_TYPE },
+            {GlobalConstants.serviceClassFee, INT_TYPE },
+            {GlobalConstants.departureAirport, STRING_TYPE },
+            {GlobalConstants.departureTime, STRING_TYPE },
+            {GlobalConstants.arrivalTime, STRING_TYPE },
+            {GlobalConstants.conjunctionTicket, STRING_TYPE },
+            {GlobalConstants.couponNumber, STRING_TYPE },
+            {GlobalConstants.notation, STRING_TYPE },
+            {GlobalConstants.taxes, INT_TYPE },
+            {GlobalConstants.airlineName, STRING_TYPE },
+            {GlobalConstants.airlineIcaoCode, STRING_TYPE },
         };
 
         /// <summary>
@@ -138,6 +148,188 @@ namespace Paysafe.CardPayments
         }
 
         /// <summary>
+        /// Get fee applied to a specific leg.
+        /// </summary>
+        /// <returns>int</returns>
+        public int serviceClassFee()
+        {
+            return getProperty(GlobalConstants.serviceClassFee);
+        }
+
+        /// <summary>
+        /// Set fee applied to a specific leg.
+        /// </summary>
+        /// <returns>void</returns>
+        public void serviceClassFee(int data)
+        {
+            setProperty(GlobalConstants.serviceClassFee, data);
+        }
+
+        /// <summary>
+        /// Departure airport. Example: SOF
+        /// </summary>
+        /// <returns>string</returns>
+        public string departureAirport()
+        {
+            return getProperty(GlobalConstants.departureAirport);
+        }
+
+        /// <summary>
+        /// Departure time at the airport of departure.
+        /// </summary>
+        /// <returns>void</returns>
+        public void departureAirport(string data)
+        {
+            setProperty(GlobalConstants.departureAirport, data);
+        }
+
+        /// <summary>
+        /// Departure time at the airport of departure.
+        /// </summary>
+        /// <returns>string</returns>
+        public string departureTime()
+        {
+            return getProperty(GlobalConstants.departureTime);
+        }
+
+        /// <summary>
+        /// Departure time at the airport of departure.
+        /// </summary>
+        /// <returns>void</returns>
+        public void departureTime(string data)
+        {
+            setProperty(GlobalConstants.departureTime, data);
+        }
+
+        /// <summary>
+        /// Arrival time at the airport for that specific leg.
+        /// </summary>
+        /// <returns>string</returns>
+        public string arrivalTime()
+        {
+            return getProperty(GlobalConstants.arrivalTime);
+        }
+
+        /// <summary>
+        /// Arrival time at the airport for that specific leg.
+        /// </summary>
+        /// <returns>void</returns>
+        public void arrivalTime(string data)
+        {
+            setProperty(GlobalConstants.arrivalTime, data);
+        }
+
+        /// <summary>
+        /// Specifying a number of the conjunction ticket within a single contract of carriage. Example: NUM123
+        /// </summary>
+        /// <returns>string</returns>
+        public string conjunctionTicket()
+        {
+            return getProperty(GlobalConstants.conjunctionTicket);
+        }
+
+        /// <summary>
+        /// Specifying a number of the conjunction ticket within a single contract of carriage. Example: NUM123
+        /// </summary>
+        /// <returns>void</returns>
+        public void conjunctionTicket(string data)
+        {
+            setProperty(GlobalConstants.conjunctionTicket, data);
+        }
+
+        /// <summary>
+        /// Coupon number associated with the leg. Every leg could have a coupon number.
+        /// </summary>
+        /// <returns>string</returns>
+        public string couponNumber()
+        {
+            return getProperty(GlobalConstants.couponNumber);
+        }
+
+        /// <summary>
+        /// Coupon number associated with the leg. Every leg could have a coupon number.
+        /// </summary>
+        /// <returns>void</returns>
+        public void couponNumber(string data)
+        {
+            setProperty(GlobalConstants.couponNumber, data);
+        }
+
+        /// <summary>
+        /// An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. 
+        /// A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay.
+        /// </summary>
+        /// <returns>string</returns>
+        public string notation()
+        {
+            return getProperty(GlobalConstants.notation);
+        }
+
+        /// <summary>
+        /// An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. 
+        /// A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay.
+        /// </summary>
+        /// <returns>void</returns>
+        public void notation(string data)
+        {
+            setProperty(GlobalConstants.notation, data);
+        }
+
+        /// <summary>
+        /// Taxes for a specific leg.
+        /// </summary>
+        /// <returns>int</returns>
+        public int taxes()
+        {
+            return getProperty(GlobalConstants.taxes);
+        }
+
+        /// <summary>
+        /// Taxes for a specific leg.
+        /// </summary>
+        /// <returns>void</returns>
+        public void taxes(int data)
+        {
+            setProperty(GlobalConstants.taxes, data);
+        }
+
+        /// <summary>
+        /// Airline full name. Example: Bulgaria Air
+        /// </summary>
+        /// <returns>string</returns>
+        public string airlineName()
+        {
+            return getProperty(GlobalConstants.airlineName);
+        }
+
+        /// <summary>
+        /// Airline full name. Example: Bulgaria Air
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineName(string data)
+        {
+            setProperty(GlobalConstants.airlineName, data);
+        }
+
+        /// <summary>
+        /// Airline ICAO code. Example: DLH
+        /// </summary>
+        /// <returns>string</returns>
+        public string airlineIcaoCode()
+        {
+            return getProperty(GlobalConstants.airlineIcaoCode);
+        }
+
+        /// <summary>
+        /// Airline ICAO code. Example: DLH
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineIcaoCode(string data)
+        {
+            setProperty(GlobalConstants.airlineIcaoCode, data);
+        }
+
+        /// <summary>
         /// LegBuilder<typeparam name="TBLDR"></typeparam> will allow a LegBuilder to be initialized
         /// within another builder. Set properties and subpropeties, then trigger .Done() to 
         /// get back to the parent builder.
@@ -223,6 +415,117 @@ namespace Paysafe.CardPayments
             public LegBuilder<TBLDR> departureDate(string data)
             {
                 properties[GlobalConstants.departureDate] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Set fee applied to a specific leg.
+            /// </summary>
+            /// <param name=data>int</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> serviceClassFee(int data)
+            {
+                properties[GlobalConstants.serviceClassFee] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Departure airport. Example: SOF
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> departureAirport(string data)
+            {
+                properties[GlobalConstants.departureAirport] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Departure time at the airport of departure.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> departureTime(string data)
+            {
+                properties[GlobalConstants.departureTime] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Arrival time at the airport for that specific leg.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> arrivalTime(string data)
+            {
+                properties[GlobalConstants.arrivalTime] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Specifying a number of the conjunction ticket within a single contract of carriage. Example: NUM123
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> conjunctionTicket(string data)
+            {
+                properties[GlobalConstants.conjunctionTicket] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Coupon number associated with the leg. Every leg could have a coupon number.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> couponNumber(string data)
+            {
+                properties[GlobalConstants.couponNumber] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. 
+            /// A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay.
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> notation(string data)
+            {
+                properties[GlobalConstants.notation] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Taxes for a specific leg.
+            /// </summary>
+            /// <param name=data>int</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> taxes(int data)
+            {
+                properties[GlobalConstants.taxes] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Airline full name. Example: Bulgaria Air
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> airlineName(string data)
+            {
+                properties[GlobalConstants.airlineName] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Airline ICAO code. Example: DLH
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>LegBuilder<TBLDR></returns>
+            public LegBuilder<TBLDR> airlineIcaoCode(string data)
+            {
+                properties[GlobalConstants.airlineIcaoCode] = data;
                 return this;
             }
         }
