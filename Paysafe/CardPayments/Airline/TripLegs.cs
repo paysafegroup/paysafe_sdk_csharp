@@ -6,7 +6,7 @@ namespace Paysafe.CardPayments
     public class TripLegs : JSONObject
     {
         /// <summary>
-        /// Initialize the Trip legs object with some set of properties.
+        /// Initialize the TripLegs object with some set of properties.
         /// </summary>
         /// <param name="properties">Dictionary<string, object></param>
         public TripLegs(Dictionary<string, object> properties = null)
