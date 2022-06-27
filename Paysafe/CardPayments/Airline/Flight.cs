@@ -18,6 +18,8 @@ namespace Paysafe.CardPayments.Airline
         {
             {GlobalConstants.carrierCode, STRING_TYPE },
             {GlobalConstants.flightNumber, STRING_TYPE },
+            {GlobalConstants.airlineName, STRING_TYPE },
+            {GlobalConstants.airlineIcaoCode, STRING_TYPE },
         };
 
         /// <summary>
@@ -54,6 +56,43 @@ namespace Paysafe.CardPayments.Airline
         public void flightNumber(string data)
         {
             setProperty(GlobalConstants.flightNumber, data);
+        }
+
+
+        /// <summary>
+        /// Airline full name. Example: Bulgaria Air
+        /// </summary>
+        /// <returns>string</returns>
+        public string airlineName()
+        {
+            return getProperty(GlobalConstants.airlineName);
+        }
+
+        /// <summary>
+        /// Airline full name. Example: Bulgaria Air
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineName(string data)
+        {
+            setProperty(GlobalConstants.airlineName, data);
+        }
+
+        /// <summary>
+        /// Airline ICAO code. Example: DLH
+        /// </summary>
+        /// <returns>string</returns>
+        public string airlineIcaoCode()
+        {
+            return getProperty(GlobalConstants.airlineIcaoCode);
+        }
+
+        /// <summary>
+        /// Airline ICAO code. Example: DLH
+        /// </summary>
+        /// <returns>void</returns>
+        public void airlineIcaoCode(string data)
+        {
+            setProperty(GlobalConstants.airlineIcaoCode, data);
         }
 
         /// <summary>
@@ -93,6 +132,29 @@ namespace Paysafe.CardPayments.Airline
             public FlightBuilder<TBLDR> flightNumber(string data)
             {
                 properties[GlobalConstants.flightNumber] = data;
+                return this;
+            }
+
+
+            /// <summary>
+            /// Airline full name. Example: Bulgaria Air
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>FlightBuilder<TBLDR></returns>
+            public FlightBuilder<TBLDR> airlineName(string data)
+            {
+                properties[GlobalConstants.airlineName] = data;
+                return this;
+            }
+
+            /// <summary>
+            /// Airline ICAO code. Example: DLH
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>FlightBuilder<TBLDR></returns>
+            public FlightBuilder<TBLDR> airlineIcaoCode(string data)
+            {
+                properties[GlobalConstants.airlineIcaoCode] = data;
                 return this;
             }
         }
