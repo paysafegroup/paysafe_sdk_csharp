@@ -64,6 +64,7 @@ namespace Paysafe.Common
         public static readonly string cellPhone = "cellPhone";
         public static readonly string childAccountNum = "childAccountNum";
         public static readonly string city = "city";
+        public static readonly string cleared = "cleared";
         public static readonly string code = "code";
         public static readonly string confirmationNumber = "confirmationNumber";
         public static readonly string country = "country";
