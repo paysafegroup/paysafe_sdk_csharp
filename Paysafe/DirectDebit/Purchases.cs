@@ -71,10 +71,11 @@ namespace Paysafe.DirectDebit
             {DirectDebitConstants.dupCheck, BOOL_TYPE},
             {DirectDebitConstants.txnTime, typeof(DateTime)},
             {DirectDebitConstants.currencyCode,STRING_TYPE},
-            {DirectDebitConstants.error, typeof(OptError)},             
-            {DirectDebitConstants.status, DirectDebitConstants.enumStatus},          
+            {DirectDebitConstants.error, typeof(OptError)},
+            {DirectDebitConstants.status, DirectDebitConstants.enumStatus},
+            {DirectDebitConstants.cleared, BOOL_TYPE},
             {DirectDebitConstants.links, typeof(List<Link>)}
-        };       
+        };
 
         /// <summary>
         /// Get the id
@@ -330,6 +331,24 @@ namespace Paysafe.DirectDebit
         }
 
         /// <summary>
+        /// Get the cleared
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool cleared()
+        {
+            return this.getProperty(DirectDebitConstants.cleared);
+        }
+
+        /// <summary>
+        /// Set the cleared
+        /// </summary>
+        /// <returns>void</returns>
+        public void cleared(string data)
+        {
+            this.setProperty(DirectDebitConstants.cleared, data);
+        }
+
+        /// <summary>
         /// Get the error
         /// </summary>
         /// <returns>OptError</returns>
@@ -462,7 +481,7 @@ namespace Paysafe.DirectDebit
                 }
                 return this.properties[DirectDebitConstants.sepa] as SEPABankAccounts.SEPAAccountBuilder<PurchasesBuilder>;
             }
-            
+
             /// <summary>
             /// Build a profile within this authorization.
             /// </summary>
@@ -475,7 +494,7 @@ namespace Paysafe.DirectDebit
                 }
                 return this.properties[DirectDebitConstants.profile] as Profile.ProfileBuilder<PurchasesBuilder>;
             }
-           
+
             /// <summary>
             /// Build a billing details object within this authorization.
             /// </summary>
@@ -512,6 +531,17 @@ namespace Paysafe.DirectDebit
             }
 
             /// <summary>
+            /// Set the cleared parameter
+            /// </summary>
+            /// <param name=data>string</param>
+            /// <returns>PurchasesBuilder</returns>
+            public PurchasesBuilder cleared(bool data)
+            {
+                this.properties[DirectDebitConstants.cleared] = data;
+                return this;
+            }
+
+            /// <summary>
             /// Set the currencyCode parameter
             /// </summary>
             /// <param name=data>string</param>
@@ -531,8 +561,8 @@ namespace Paysafe.DirectDebit
             {
                 this.properties[DirectDebitConstants.status] = data;
                 return this;
-            }           
+            }
         }
     }
-        
+
 }
