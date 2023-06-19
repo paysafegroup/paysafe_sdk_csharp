@@ -5,20 +5,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Three D Secure V2 Authentications Request</title>
+    <script src="https://hosted.paysafe.com/threedsecure/js/latest/paysafe.threedsecure.min.js"></script>
 </head>
 <body>
-    <% if (payment_id != null)
-       { %>
-            <h1>Payment Successful: <% Response.Write(payment_id);%> </h1><br/>
-    <% }
-       else
-       { %>
     <form runat="server">
-   <fieldset>
-            <legend>Authentications Request</legend>
-            <div>
-                <label>
-                    Merchant Customer Id: 
+        <asp:PlaceHolder ID="PlaceHolderAuthCompleted" Visible="false" runat="server">
+            <h1>Authentication results:</h1>
+            status:<asp:TextBox ID="TextBoxstatus" runat="server"></asp:TextBox><br />
+            threeDSecureVersion:<asp:TextBox ID="TextBoxthreeDSecureVersion" runat="server"></asp:TextBox><br />
+            threeDResult:<asp:TextBox ID="TextBoxthreeDResult" runat="server"></asp:TextBox><br />
+            authenticationId:<asp:TextBox ID="TextBoxauthenticationId" runat="server"></asp:TextBox><br />
+            sdkChallengePayload:<asp:TextBox ID="TextBoxsdkChallengePayload" runat="server"></asp:TextBox>
+
+            <asp:PlaceHolder ID="PlaceHolderChallenge" Visible="false" runat="server">
+                <script type="text/javascript">
+                    paysafe.threedsecure.challenge('<% Response.Write(b64FingerprintGeneratingKey);%>', {
+                        environment: "TEST",
+                        sdkChallengePayload: "<% Response.Write(sdkChallengePayload);%>"
+                    }, function (id, error) {
+                        console.log("challengeId:" + id);
+                        console.log("challengeError:" + error);
+                    });
+                </script>
+            </asp:PlaceHolder>
+        </asp:PlaceHolder>
+
+        <asp:PlaceHolder ID="PlaceHolderAuthRequest" runat="server">
+            <fieldset>
+                <legend>Authentications Request</legend>
+                <div>
+                    <label>
+                        Merchant Customer Id: 
 						<input type="text" name="merchant_customer_id" value="<%
                             if (Request.Form["merchant_customer_id"] == null)
                             {
@@ -65,10 +82,10 @@
          <div>
                 <label>
                     DeviceFingerprintingId: 
-						<input type="text" name="deviceFingerprintingId" value="<%
+						<input type="text" id="deviceFingerprintingId" name="deviceFingerprintingId" value="<%
                             if (Request.Form["deviceFingerprintingId"] == null)
                             {
-                                Response.Write("3bf74a2a-8668-4f14-b2bf-fd8e07ae2100");
+                                Response.Write("");
                             }
                             else
                             {
@@ -84,7 +101,7 @@
 						<input type="text" autocomplete="off" name="card_number" value="<%
                             if (Request.Form["card_number"] == null)
                             {
-                                Response.Write("4444333322221111");
+                                Response.Write("4000000000001091");
                             }
                             else
                             {
@@ -187,9 +204,26 @@
        
              
             </fieldset>
-        
-        <asp:Button ID="btnSubmit" Text="Submit" runat="server" />
+
+            <asp:Button ID="btnSubmit" Text="Submit" runat="server" />
+
+            <script type="text/javascript">
+                paysafe.threedsecure.start('<% Response.Write(b64FingerprintGeneratingKey);%>', {
+                    environment: "TEST",
+                    accountId: "<% Response.Write(accountNumber);%>",
+                    card: {
+                        cardBin: "400000"
+                    }
+                }, function (deviceFingerprintingId, error) {
+                    document.getElementById("deviceFingerprintingId").value = deviceFingerprintingId;
+                    console.log("deviceFingerprintingId:" + deviceFingerprintingId);
+                    if (error !== undefined) {
+                        console.log(error);
+                    }
+                });
+            </script>
+
+        </asp:PlaceHolder>
     </form>
-    <% } %>
 </body>
 </html>
