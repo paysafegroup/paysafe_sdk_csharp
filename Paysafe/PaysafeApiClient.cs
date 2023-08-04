@@ -204,6 +204,8 @@ namespace Paysafe
             conn.ContentType = "application/json; charset=utf-8";
             conn.Headers["SDK-Type"] = "Paysafe_CSharp_SDK";
 
+            SetExpect100Continue(conn, false);
+            
             conn.Method = request.method();
             if (request.method().Equals(RequestType.POST.ToString())
                 || request.method().Equals(RequestType.PUT.ToString()))
@@ -297,5 +299,14 @@ namespace Paysafe
             return JsonHelper.Deserialize(response) as Dictionary<string, object>;
         }
 
+        public void SetExpect100Continue(HttpWebRequest Request, Boolean Value)
+        {
+            PropertyInfo ServicePoint = Request.GetType().GetProperty("ServicePoint");
+            if (ServicePoint != null)
+            {
+                PropertyInfo Expect100Continue = ServicePoint.GetValue(Request, null).GetType().GetProperty("Expect100Continue");
+                Expect100Continue.SetValue(ServicePoint.GetValue(Request, null), Value, null);
+            }
+        }
     }
 }
