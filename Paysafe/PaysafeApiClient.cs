@@ -29,6 +29,7 @@ using DirectDebitService = Paysafe.DirectDebit.DirectDebitService;
 using ThreeDSecureService = Paysafe.ThreeDSecure.ThreeDSecureService;
 using ThreeDSecureV2Service = Paysafe.ThreeDsecureV2.ThreeDSecureV2Service;
 using Paysafe.Common;
+using System.Reflection;
 
 [assembly: CLSCompliant(true)]
 
