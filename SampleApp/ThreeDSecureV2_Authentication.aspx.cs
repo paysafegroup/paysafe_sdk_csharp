@@ -12,8 +12,9 @@ namespace SampleApp
 {
     public partial class ThreeDSecureV2_Authentication : System.Web.UI.Page
     {
-        protected string response = null;
-        protected String payment_id = null;
+        protected string sdkChallengePayload = null;
+        protected string accountNumber = null;
+        protected string b64FingerprintGeneratingKey = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             System.Globalization.CultureInfo ui = System.Globalization.CultureInfo.CurrentUICulture;
@@ -43,22 +44,28 @@ namespace SampleApp
                 ListItem li = new ListItem(year, year);
                 this.card_expiry_year.Items.Add(li);
             }
+
+            accountNumber = System.Configuration.ConfigurationManager.AppSettings["AccountNumber"];
+            string SutKey = System.Configuration.ConfigurationManager.AppSettings["SutKey"];
+            string SutPassword = System.Configuration.ConfigurationManager.AppSettings["SutPassword"];
+            var SutBytes = System.Text.Encoding.UTF8.GetBytes($"{SutKey}:{SutPassword}");
+            b64FingerprintGeneratingKey = Convert.ToBase64String(SutBytes);
+
             btnSubmit.Click += new System.EventHandler(this.submit);
         }
         protected void submit(object sender, System.EventArgs e)
         {
             string apiKey = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
             string apiSecret = System.Configuration.ConfigurationManager.AppSettings["ApiSecret"];
-            string accountNumber = System.Configuration.ConfigurationManager.AppSettings["AccountNumber"];
             int currencyBaseUnitsMultiplier = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["CurrencyBaseUnitsMultiplier"]);
            
             PaysafeApiClient client = new PaysafeApiClient(apiKey, apiSecret, Paysafe.Environment.TEST, accountNumber);
 
             try
             {
-                Authentication authentication = client.threeDSecureV2Service().authentications(Authentication.Builder()
+                var authBuilt = Authentication.Builder()
                      .merchantRefNum(Request.Form["merchant_customer_id"])
-                     .amount(Convert.ToInt64(Double.Parse(Request.Form["amount"]) * currencyBaseUnitsMultiplier))
+                     .amount(Convert.ToInt64(Double.Parse(Request.Form["amount"], System.Globalization.NumberStyles.AllowDecimalPoint) * currencyBaseUnitsMultiplier))
                      .currency(Request.Form["currency"])
                      .deviceFingerprintingId(Request.Form["deviceFingerprintingId"])
                      .card()
@@ -73,8 +80,22 @@ namespace SampleApp
                 .authenticationPurpose(Request.Form["authenticationPurpose"])
                 .deviceChannel(Request.Form["deviceChannel"])
                 .messageCategory(Request.Form["messageCategory"])
-                .Build());
-                this.payment_id = authentication.id();                               
+                .Build();
+
+                Authentication authentication = client.threeDSecureV2Service().authentications(authBuilt);
+                TextBoxauthenticationId.Text = authentication.id();
+                TextBoxstatus.Text = authentication.status(); // COMPLETED, PENDING or FAILED
+                TextBoxthreeDSecureVersion.Text = authentication.threeDSecureVersion();
+                string threeDResult = authentication.threeDResult();
+                TextBoxthreeDResult.Text = threeDResult;
+                if (threeDResult == "C")
+                {
+                    PlaceHolderChallenge.Visible = true;
+                    this.sdkChallengePayload = authentication.sdkChallengePayload();
+                    TextBoxsdkChallengePayload.Text = this.sdkChallengePayload;
+                }
+                PlaceHolderAuthCompleted.Visible = true;
+                PlaceHolderAuthRequest.Visible = false;
             }
             catch (Exception ex)
             {
